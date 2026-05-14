@@ -23,6 +23,7 @@ export const metadata: Metadata = {
 };
 
 import PageTransition from "@/components/PageTransition";
+import MobileNav from "@/components/MobileNav";
 
 const InstagramIcon = ({ size = 24 }: { size?: number }) => (
   <svg
@@ -49,60 +50,72 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+        <link rel="icon" href="/logo_final.jpg" sizes="any" />
       </head>
       <body>
         <nav className="global-nav">
-          <div className="container nav-content">
+          <div className="nav-content">
             <a href="/" className="logo-link">
               <img src="/logo_final.jpg" alt="ART PRESS" className="logo-img" />
             </a>
-            <div className="nav-links">
+            <div className="nav-links serif">
               <a href="/magazine">Magazine 雜誌</a>
               <a href="/people">Looom People</a>
               <a href="/contact">Contact 聯繫</a>
             </div>
             <div className="nav-meta">
-              <a href="https://www.instagram.com/looomasia/" target="_blank" rel="noopener noreferrer" className="social-icon">
-                <InstagramIcon size={20} />
+              <a href="https://www.instagram.com/looomasia/" target="_blank" rel="noopener noreferrer" className="social-icon desktop-only">
+                <InstagramIcon size={18} />
               </a>
+              <MobileNav />
             </div>
           </div>
         </nav>
+
         <PageTransition>{children}</PageTransition>
         <footer className="global-footer">
           <div className="container">
-            <div className="footer-top">
-              <img src="/logo_final.jpg" alt="ART PRESS" className="footer-logo" />
-              <p className="footer-desc">
-                Leading Contemporary Art Editorial and Art Knowledge Media based in Taipei.
-              </p>
-            </div>
-            <div className="footer-content-row">
-              <div className="footer-contact-info">
-                <p style={{ fontSize: '0.9rem', marginBottom: '1rem' }}>新聞稿收件：news@theartpressasia.com</p>
-                <p style={{ fontSize: '0.9rem' }}>廣告業務洽詢：ads@theartpressasia.com</p>
+            <div className="footer-top-grid">
+              <div className="footer-brand">
+                <p className="footer-desc serif">
+                  Leading Contemporary Art Editorial and<br />
+                  Art Knowledge Media based in Taipei.
+                </p>
               </div>
-              <div className="footer-links-grid">
-                <div className="footer-link-col">
-                  <h4>Sections</h4>
-                  <a href="/">Magazine</a>
-                  <a href="/">People</a>
-                  <a href="/">Contact</a>
-                </div>
-                <div className="footer-link-col">
-                  <h4>Follow</h4>
-                  <a href="https://www.instagram.com/looomasia/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <div className="footer-newsletter">
+                <h3 className="caps-label" style={{ color: 'var(--ink)' }}>Subscribe to Newsletter</h3>
+                <div className="newsletter-input-group">
+                  <input type="email" placeholder="Your email address" className="newsletter-input" />
+                  <button className="newsletter-btn">→</button>
                 </div>
               </div>
             </div>
-            <div className="footer-bottom" style={{ marginTop: '6rem', paddingTop: '2rem', borderTop: '1px solid #EEE', fontSize: '0.8rem', color: '#888' }}>
-              <p>© 2026 ART PRESS. Belong to Looom Asia.</p>
+            
+            <div className="footer-links-row">
+              <div className="footer-link-col">
+                <h4>Sections</h4>
+                <a href="/magazine">Magazine 雜誌</a>
+                <a href="/people">Looom People</a>
+                <a href="/contact">Contact 聯繫</a>
+              </div>
+              <div className="footer-link-col">
+                <h4>Connect</h4>
+                <a href="mailto:news@theartpressasia.com">新聞稿收件信箱，請點擊聯繫。</a>
+                <a href="mailto:ads@theartpressasia.com">廣告業務洽詢，請點擊聯繫。</a>
+              </div>
+              <div className="footer-link-col">
+                <h4>Follow</h4>
+                <a href="https://www.instagram.com/theartpressasia/" target="_blank" rel="noopener noreferrer">Instagram</a>
+              </div>
+            </div>
+            
+            <div className="footer-bottom">
+              <div>© 2026 ART PRESS ASIA. ALL RIGHTS RESERVED.</div>
+              <div>Belong to LOOOM ASIA GROUP.</div>
             </div>
           </div>
         </footer>
+
       </body>
     </html>
   );

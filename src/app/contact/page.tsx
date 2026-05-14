@@ -5,69 +5,74 @@ import { motion } from "framer-motion";
 export default function ContactPage() {
   return (
     <main className="contact-page" style={{ backgroundColor: 'var(--canvas)', minHeight: '100vh', paddingBottom: '10rem' }}>
-      <section className="container" style={{ maxWidth: '800px', margin: '0 auto', paddingTop: '8rem' }}>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <span className="article-tag" style={{ color: '#888', marginBottom: '1.5rem', letterSpacing: '0.3em', textTransform: 'uppercase', fontSize: '0.8rem', display: 'block' }}>
-            Get in touch
-          </span>
-          <h1 className="serif" style={{ fontSize: '3.5rem', marginBottom: '4rem', lineHeight: '1.1' }}>
-            Contact 聯繫
-          </h1>
-
-          <div className="contact-content" style={{ fontSize: '1.1rem', lineHeight: '2', color: '#333' }}>
-            <p style={{ marginBottom: '2.5rem' }}>
-              想要聯絡 ART PRESS 編輯部，您可以發送郵件給 <a href="mailto:news@theartpressasia.com" style={{ textDecoration: 'underline', fontWeight: '600' }}>news@theartpressasia.com</a>。
+      <section className="container" style={{ maxWidth: '1200px', margin: '0 auto', paddingTop: '10rem' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8rem' }}>
+          
+          {/* Left Column: Heading */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
+          >
+            <span className="sub-title">Connect with us</span>
+            <h1 className="serif" style={{ fontSize: 'clamp(3rem, 6vw, 6rem)', lineHeight: '1', marginBottom: '2rem' }}>
+              Contact <br />
+              <span style={{ fontSize: '0.5em', fontStyle: 'italic', color: 'var(--accent)' }}>聯繫</span>
+            </h1>
+            <p style={{ fontSize: '1.2rem', lineHeight: '1.8', color: '#666', maxWidth: '400px', marginTop: '4rem' }}>
+              無論是藝文投稿、新聞線索，或單純的想法交流，我們皆由衷期待與您對話。
             </p>
-            <p style={{ marginBottom: '4rem' }}>
-              無論是藝文類文章投稿、提供關於文化政策、藝文環境之新聞線索、或者有任何想法希望與我們交流皆歡迎。我們會確實閱讀所有的郵件，必要時亦會盡量快地回覆。
-            </p>
+          </motion.div>
 
-            <div style={{ borderTop: '1px solid #EEE', paddingTop: '4rem', marginBottom: '4rem' }}>
-              <h2 className="serif" style={{ fontSize: '1.8rem', marginBottom: '2rem' }}>聯繫方式</h2>
-              <ul style={{ listStyle: 'none', padding: 0 }}>
-                <li style={{ marginBottom: '2rem' }}>
-                  <span style={{ fontSize: '0.7rem', letterSpacing: '0.1em', color: '#888', display: 'block', marginBottom: '0.5rem', textTransform: 'uppercase' }}>Media & General</span>
-                  <a href="mailto:news@theartpressasia.com" style={{ fontSize: '1.2rem', fontWeight: '500' }}>news@theartpressasia.com</a>
-                </li>
-                <li style={{ marginBottom: '2rem' }}>
-                  <span style={{ fontSize: '0.7rem', letterSpacing: '0.1em', color: '#888', display: 'block', marginBottom: '0.5rem', textTransform: 'uppercase' }}>Advertising & Collaboration</span>
-                  <a href="mailto:ads@theartpressasia.com" style={{ fontSize: '1.2rem', fontWeight: '500' }}>ads@theartpressasia.com</a>
-                </li>
-                <li style={{ marginBottom: '2rem' }}>
-                  <span style={{ fontSize: '0.7rem', letterSpacing: '0.1em', color: '#888', display: 'block', marginBottom: '0.5rem', textTransform: 'uppercase' }}>Media Kit</span>
-                  <a href="https://theartpressasia.com/wp-content/uploads/2022/08/ART-PRESS-2022-ONLINE-MAGAZINE.pdf" target="_blank" rel="noopener noreferrer" style={{ fontSize: '1.1rem', textDecoration: 'underline' }}>
-                    ART PRESS - 2022 Online Magazine (PDF)
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div style={{ borderTop: '1px solid #EEE', paddingTop: '4rem', marginBottom: '4rem' }}>
-              <h2 className="serif" style={{ fontSize: '1.8rem', marginBottom: '2rem' }}>Office 辦公室</h2>
-              <p style={{ marginBottom: '1rem', fontSize: '1.1rem' }}>
-                台北市大安區大安路一段175巷2號1樓
-              </p>
-              <p style={{ fontSize: '1rem', color: '#666' }}>
-                1F, No. 2, Lane 175, Section 1, Da’an Rd, Da’an District, Taipei City, 106, TAIWAN
-              </p>
-            </div>
-
-            <div style={{ borderTop: '1px solid #EEE', paddingTop: '4rem' }}>
-              <h2 className="serif" style={{ fontSize: '1.8rem', marginBottom: '2rem' }}>Social 社交網路</h2>
-              <p style={{ marginBottom: '2rem' }}>
-                如果您更習慣使用 Facebook 或者其它社交網絡，也可以在這些地方找到和關注我們：
-              </p>
-              <div style={{ display: 'flex', gap: '3rem' }}>
-                <a href="https://www.instagram.com/looomasia/" target="_blank" rel="noopener noreferrer" style={{ fontWeight: '600', borderBottom: '1px solid #000' }}>Instagram</a>
-                <a href="https://www.facebook.com/theartpressasia/" target="_blank" rel="noopener noreferrer" style={{ fontWeight: '600', borderBottom: '1px solid #000' }}>Facebook</a>
+          {/* Right Column: Detailed Links */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.2, ease: [0.19, 1, 0.22, 1] }}
+            style={{ display: 'flex', flexDirection: 'column', gap: '5rem' }}
+          >
+            {/* Block 1: Emails */}
+            <div className="contact-block">
+              <h4 style={{ fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#AAA', marginBottom: '2rem', borderBottom: '1px solid #EEE', paddingBottom: '1rem' }}>
+                Departments
+              </h4>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+                <div>
+                  <span style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.5rem', color: '#888' }}>Media & Editorial</span>
+                  <a href="mailto:news@theartpressasia.com" style={{ fontSize: '1.5rem', fontWeight: 500, borderBottom: '1px solid var(--ink)' }}>news@theartpressasia.com</a>
+                </div>
+                <div>
+                  <span style={{ display: 'block', fontSize: '0.75rem', marginBottom: '0.5rem', color: '#888' }}>Partnerships & Ads</span>
+                  <a href="mailto:ads@theartpressasia.com" style={{ fontSize: '1.5rem', fontWeight: 500, borderBottom: '1px solid var(--ink)' }}>ads@theartpressasia.com</a>
+                </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+
+            {/* Block 2: Location */}
+            <div className="contact-block">
+              <h4 style={{ fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#AAA', marginBottom: '2rem', borderBottom: '1px solid #EEE', paddingBottom: '1rem' }}>
+                Headquarters
+              </h4>
+              <p style={{ fontSize: '1.2rem', lineHeight: '1.6', fontWeight: 500 }}>
+                台北市大安區大安路一段175巷2號1樓 <br />
+                <span style={{ fontSize: '0.9rem', color: '#666', fontWeight: 400 }}>1F, No. 2, Lane 175, Sec. 1, Da’an Rd, Taipei</span>
+              </p>
+            </div>
+
+            {/* Block 3: Social & Press Kit */}
+            <div className="contact-block">
+              <h4 style={{ fontSize: '0.7rem', letterSpacing: '0.3em', textTransform: 'uppercase', color: '#AAA', marginBottom: '2rem', borderBottom: '1px solid #EEE', paddingBottom: '1rem' }}>
+                Resources
+              </h4>
+              <div style={{ display: 'flex', gap: '3rem' }}>
+                <a href="https://www.instagram.com/theartpressasia/" target="_blank" rel="noopener noreferrer" style={{ fontWeight: 600 }}>Instagram</a>
+                <a href="https://www.facebook.com/theartpressasia/" target="_blank" rel="noopener noreferrer" style={{ fontWeight: 600 }}>Facebook</a>
+                <a href="#" style={{ fontWeight: 600, color: 'var(--accent)' }}>Press Kit 2026</a>
+              </div>
+            </div>
+          </motion.div>
+
+        </div>
       </section>
     </main>
   );
