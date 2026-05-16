@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/admin/',
     },
-    sitemap: 'https://theartpressasia.com/sitemap.xml',
+    sitemap: 'https://looom-artpress.com/sitemap.xml',
   }
 }

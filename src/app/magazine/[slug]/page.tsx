@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   const title = `${article.title} | ART PRESS Asia`;
   const description = article.subtitle || (Array.isArray(article.content) ? article.content.find((b: any) => b.type === 'text' || b.type === 'paragraph')?.content?.substring(0, 160) : '');
-  const url = `https://theartpressasia.com/magazine/${slug}`;
+  const url = `https://looom-artpress.com/magazine/${slug}`;
 
   return {
     title,

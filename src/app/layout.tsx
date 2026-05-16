@@ -5,11 +5,11 @@ export const metadata: Metadata = {
   title: "ART PRESS Asia | The Leading Contemporary Art Editorial",
   description: "The Leading Contemporary Art Editorial and Art Knowledge Media based in Taipei, providing exhibitions, research artists, view and insights.",
   keywords: ["contemporary art", "taiwan art", "art media", "exhibitions", "art interviews", "Patricia Dominguez", "Taipei Biennial"],
-  metadataBase: new URL('https://theartpressasia.com'),
+  metadataBase: new URL('https://looom-artpress.com'),
   openGraph: {
     title: "ART PRESS Asia",
     description: "The Leading Contemporary Art Editorial and Art Knowledge Media based in Taipei.",
-    url: "https://theartpressasia.com",
+    url: "https://looom-artpress.com",
     siteName: "ART PRESS Asia",
     images: [
       {

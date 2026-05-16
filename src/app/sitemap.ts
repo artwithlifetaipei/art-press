@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 import { supabase } from '@/lib/supabase'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://theartpressasia.com'
+  const baseUrl = 'https://looom-artpress.com'
 
   // Fetch all published articles from Supabase
   const { data: articles } = await supabase
