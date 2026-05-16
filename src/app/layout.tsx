@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "ART PRESS Asia | The Leading Contemporary Art Editorial",
   description: "The Leading Contemporary Art Editorial and Art Knowledge Media based in Taipei, providing exhibitions, research artists, view and insights.",
   keywords: ["contemporary art", "taiwan art", "art media", "exhibitions", "art interviews", "Patricia Dominguez", "Taipei Biennial"],
+  metadataBase: new URL('https://theartpressasia.com'),
   openGraph: {
     title: "ART PRESS Asia",
     description: "The Leading Contemporary Art Editorial and Art Knowledge Media based in Taipei.",
@@ -12,9 +13,10 @@ export const metadata: Metadata = {
     siteName: "ART PRESS Asia",
     images: [
       {
-        url: "/hero.png",
+        url: "/og-image.png",
         width: 1200,
         height: 630,
+        alt: "ART PRESS Asia — Belong to LOOOM ASIA GROUP",
       },
     ],
     locale: "zh_TW",

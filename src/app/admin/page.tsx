@@ -8,10 +8,28 @@ import { Edit2, Plus, Trash2 } from 'lucide-react';
 export default function AdminDashboard() {
   const [articles, setArticles] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
+  const [totalCount, setTotalCount] = useState<number>(0);
+  const [draftCount, setDraftCount] = useState<number>(0);
 
   useEffect(() => {
     fetchArticles();
+    fetchCounts();
   }, []);
+
+  // Fetch exact counts directly from the DB (not limited by row fetch limits)
+  const fetchCounts = async () => {
+    const { count: total } = await supabase
+      .from('articles')
+      .select('*', { count: 'exact', head: true });
+
+    const { count: drafts } = await supabase
+      .from('articles')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', 'draft');
+
+    setTotalCount(total ?? 0);
+    setDraftCount(drafts ?? 0);
+  };
 
   const fetchArticles = async () => {
     try {
@@ -35,13 +53,11 @@ export default function AdminDashboard() {
       const { error } = await supabase.from('articles').delete().eq('id', id);
       if (error) throw error;
       fetchArticles();
+      fetchCounts(); // refresh counts after deletion
     } catch (error) {
       alert('Error deleting article');
     }
   };
-
-  const totalCount = articles.length;
-  const draftCount = articles.filter(a => a.status === 'draft').length;
 
   return (
     <div style={{ padding: '60px 80px', maxWidth: '1200px' }}>

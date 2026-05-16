@@ -142,7 +142,7 @@ export default function Home() {
       {/* SECTION 2: LOOOM PEOPLE - 4 Articles Grid */}
       <section className="container" style={{ marginTop: '120px', paddingBottom: '140px' }}>
         <div style={{ borderTop: '1px solid #000', paddingTop: '40px', marginBottom: '80px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <h2 className="serif" style={{ fontSize: '2.2rem', fontWeight: 400 }}>Looom People</h2>
+          <h2 className="serif people-section-title">Looom People</h2>
           <a href="/people" className="caps-label" style={{ borderBottom: '1px solid #000', fontWeight: 600 }}>View All Interviews</a>
         </div>
 

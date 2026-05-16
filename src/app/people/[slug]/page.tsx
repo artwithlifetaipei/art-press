@@ -113,23 +113,67 @@ export default function PeopleArticlePage() {
   useEffect(() => {
     async function fetchArticle() {
       try {
-        const { data } = await supabase.from('articles').select('*').eq('slug', slug).single();
+        console.log('Fetching article for slug:', slug);
+        const { data, error } = await supabase.from('articles').select('*').eq('slug', slug).single();
+        
+        if (error) {
+          console.error('Supabase error:', error);
+        }
+
         if (data) {
-          setArticle(data);
+          console.log('Successfully fetched article data:', data.title);
+          
+          // Robust content parsing
+          let parsedContent = data.content;
+          if (typeof parsedContent === 'string') {
+            try {
+              parsedContent = JSON.parse(parsedContent);
+              console.log('Parsed content string into array');
+            } catch (e) {
+              console.error('Failed to parse content string:', e);
+              parsedContent = [];
+            }
+          }
+
+          if (parsedContent && Array.isArray(parsedContent)) {
+            setArticle({
+              ...data,
+              content: parsedContent
+            });
+          } else {
+            console.warn('Content is not an array, using default object');
+            setArticle(data);
+          }
+          
+          setLoading(false);
           return;
         }
       } catch (error) {
-        console.error('Supabase fetch failed, falling back to local data');
+        console.error('Fetch operation failed:', error);
       }
+      
       // Fallback
-      setArticle(articleData[slug as string]);
+      console.log('Falling back to local articleData for:', slug);
+      const fallback = articleData[slug as string];
+      if (fallback) {
+        setArticle(fallback);
+      }
       setLoading(false);
     }
     fetchArticle();
   }, [slug]);
 
-  if (loading) return null;
+  if (loading) return (
+    <div style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <p className="serif" style={{ fontSize: '1.2rem', opacity: 0.5 }}>Loading...</p>
+    </div>
+  );
+  
   if (!article) return notFound();
+
+  // Helper to get value from block regardless of property name
+  const getBlockValue = (block: any) => block.value || block.content || "";
+  const getBlockImage = (block: any) => block.url || block.image || block.value || "";
 
   return (
     <main className="article-detail-v4" style={{ backgroundColor: '#FFF', minHeight: '100vh', paddingBottom: '140px' }}>
@@ -141,7 +185,9 @@ export default function PeopleArticlePage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
         >
-          <span className="caps-label" style={{ color: 'var(--accent)', fontWeight: 600 }}>{article.tag}</span>
+          <span className="caps-label" style={{ color: 'var(--accent)', fontWeight: 600 }}>
+            {article.tag || (article.category === 'people' ? 'Looom People' : 'Magazine')}
+          </span>
           <h1 className="serif" style={{ fontSize: '3rem', lineHeight: '1.2', margin: '1.5rem 0 2rem', fontWeight: 500, maxWidth: '950px' }}>
             {article.title}
           </h1>
@@ -155,11 +201,11 @@ export default function PeopleArticlePage() {
         <div className="article-info-flex">
           <div>
             <span className="caps-label">Published</span>
-            <p style={{ fontSize: '0.9rem', fontWeight: 600, marginTop: '0.5rem' }}>{article.date}</p>
+            <p style={{ fontSize: '0.9rem', fontWeight: 600, marginTop: '0.5rem' }}>{article.date || 'October 2025'}</p>
           </div>
           <div>
             <span className="caps-label">Editorial</span>
-            <p style={{ fontSize: '0.9rem', fontWeight: 600, marginTop: '0.5rem' }}>{article.author}</p>
+            <p style={{ fontSize: '0.9rem', fontWeight: 600, marginTop: '0.5rem' }}>{article.author || 'ART PRESS'}</p>
           </div>
         </div>
       </section>
@@ -167,17 +213,18 @@ export default function PeopleArticlePage() {
       {/* HERO VISUAL */}
       <section className="container" style={{ margin: '0 auto 100px' }}>
         <img src={article.image} alt={article.title} style={{ width: '100%', height: 'auto', display: 'block' }} />
-        {article.imageCaption && (
-          <p style={{ fontSize: '13px', color: '#999', textAlign: 'right', marginTop: '1.5rem', fontStyle: 'italic' }}>{article.imageCaption}</p>
+        {(article.image_caption || article.imageCaption) && (
+          <p style={{ fontSize: '13px', color: '#999', textAlign: 'right', marginTop: '1.5rem', fontStyle: 'italic' }}>
+            {article.image_caption || article.imageCaption}
+          </p>
         )}
       </section>
 
       {/* BODY CONTENT: Balanced Spacing */}
       <article style={{ maxWidth: '780px', margin: '0 auto', padding: '0 2rem' }}>
-        {article.content.map((block: any, i: number) => {
-          const contentValue = block.content || block.value || "";
-          const imageUrl = block.url || block.value || "";
-
+        {Array.isArray(article.content) && article.content.map((block: any, i: number) => {
+          const val = getBlockValue(block);
+          
           if (block.type === 'text' || block.type === 'paragraph') {
             return (
               <p 
@@ -189,7 +236,7 @@ export default function PeopleArticlePage() {
                   fontWeight: block.bold ? '600' : '400',
                   color: block.bold ? '#000' : '#333'
                 }}
-                dangerouslySetInnerHTML={{ __html: contentValue }}
+                dangerouslySetInnerHTML={{ __html: val }}
               />
             );
           } else if (block.type === 'subheading' || block.type === 'h2' || block.type === 'h3') {
@@ -199,13 +246,14 @@ export default function PeopleArticlePage() {
                 className="serif"
                 style={{ fontSize: '2.2rem', marginTop: '80px', marginBottom: '35px', fontWeight: '500' }}
               >
-                {contentValue}
+                {val}
               </h2>
             );
           } else if (block.type === 'image') {
+            const imgUrl = getBlockImage(block);
             return (
               <div key={i} style={{ margin: '80px 0' }}>
-                <img src={imageUrl} alt="Content" style={{ width: '100%', height: 'auto' }} />
+                <img src={imgUrl} alt="Content" style={{ width: '100%', height: 'auto' }} />
                 {block.caption && (
                   <p style={{ fontSize: '12px', color: '#AAA', textAlign: 'right', marginTop: '1rem', fontStyle: 'italic' }}>{block.caption}</p>
                 )}
@@ -216,8 +264,10 @@ export default function PeopleArticlePage() {
         })}
 
         <div style={{ marginTop: '120px', padding: '60px', border: '1px solid #EEE', textAlign: 'center' }}>
-          <p className="serif" style={{ fontSize: '1.4rem', marginBottom: '2rem' }}>{article.footer}</p>
-          <a href="#" style={{ display: 'inline-block', padding: '15px 40px', backgroundColor: '#000', color: '#FFF', fontSize: '12px', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 600 }}>
+          <p className="serif" style={{ fontSize: '1.4rem', marginBottom: '2rem' }}>
+            {article.footer || "Looom Club 適合擁有自身事業的主理人與企業高階經理人，能在有限的時間裡高效率交流。"}
+          </p>
+          <a href="/contact" style={{ display: 'inline-block', padding: '15px 40px', backgroundColor: '#000', color: '#FFF', fontSize: '12px', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 600 }}>
             Apply Membership
           </a>
         </div>
