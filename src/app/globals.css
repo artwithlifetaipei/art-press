@@ -939,12 +939,6 @@ a:hover {
   font-style: italic;
 }
 
-@media (min-width: 992px) {
-  .club-hero-subtitle {
-    white-space: nowrap;
-  }
-}
-
 .club-cta-group {
   display: flex;
   gap: 1.5rem;

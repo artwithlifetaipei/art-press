@@ -70,7 +70,10 @@ export default function LooomClubPage() {
             Where creators and business owners, leaders come together.
           </h1>
           <p className="club-hero-subtitle serif">
-            在過去，台灣有許多傳統形式的社群，但 Looom Club 與這些傳統精英社群不同。
+            在過去，台灣有許多傳統形式的社群，但 Looom Club 與這些傳統精英社群不同
+            <span style={{ display: 'block', marginTop: '0.5rem' }}>
+              —- 以文化、創意產業與長期關係為核心的私密會員俱樂部
+            </span>
           </p>
           <div className="club-cta-group">
             <a 
