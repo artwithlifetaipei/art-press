@@ -64,7 +64,6 @@ export default function RootLayout({
               <a href="/magazine">Magazine 雜誌</a>
               <a href="/people">Looom People</a>
               <a href="/looom-club">Looom Club</a>
-              <a href="/press">Press 媒體報導</a>
               <a href="/contact">Contact 聯繫</a>
             </div>
             <div className="nav-meta">
@@ -101,7 +100,6 @@ export default function RootLayout({
                 <a href="/magazine">Magazine 雜誌</a>
                 <a href="/people">Looom People</a>
                 <a href="/looom-club">Looom Club</a>
-                <a href="/press">Press 媒體報導</a>
                 <a href="/contact">Contact 聯繫</a>
               </div>
               <div className="footer-link-col">

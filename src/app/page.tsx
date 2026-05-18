@@ -140,7 +140,7 @@ export default function Home() {
       </section>
 
       {/* SECTION 2: LOOOM PEOPLE - 4 Articles Grid */}
-      <section className="container" style={{ marginTop: '120px', paddingBottom: '140px' }}>
+      <section className="container" style={{ marginTop: '120px', paddingBottom: '120px' }}>
         <div style={{ borderTop: '1px solid #000', paddingTop: '40px', marginBottom: '80px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <h2 className="serif people-section-title">Looom People</h2>
           <a href="/people" className="caps-label" style={{ borderBottom: '1px solid #000', fontWeight: 600 }}>View All Interviews</a>
@@ -166,6 +166,33 @@ export default function Home() {
             </motion.a>
           ))}
         </div>
+      </section>
+
+      {/* MEDIA KIT & INQUIRIES */}
+      <section className="container" style={{ paddingBottom: "140px" }}>
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
+          style={{
+            border: "1px solid var(--border)",
+            padding: "80px 60px",
+            textAlign: "center",
+            backgroundColor: "#FAFAFA"
+          }}
+        >
+          <span className="caps-label">Press Contacts</span>
+          <h2 className="serif" style={{ fontSize: "2.2rem", fontWeight: 400, marginTop: "1rem", marginBottom: "1.5rem" }}>
+            媒體聯絡與合作洽詢
+          </h2>
+          <p className="serif" style={{ color: "var(--muted)", fontSize: "1.15rem", maxWidth: "600px", margin: "0 auto 2.5rem", lineHeight: 1.75 }}>
+            若您有採訪撰稿需求、品牌合作提案，或欲索取 Looom Club 與 ART PRESS 官方新聞資料袋（Media Kit），歡迎隨時來信。
+          </p>
+          <a href="mailto:looom@theartpressasia.com" className="club-btn">
+            Contact Press Office 聯繫媒體部
+          </a>
+        </motion.div>
       </section>
     </div>
   );

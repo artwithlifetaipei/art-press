@@ -151,8 +151,8 @@ export default function LooomClubPage() {
             transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
           >
             <h3 className="serif club-price-title">基礎會籍</h3>
-            <p className="club-price-desc">Membership for 12 Months</p>
-            <p className="serif" style={{ fontSize: '2.2rem', fontWeight: 500, margin: '2rem 0', color: 'var(--ink)' }}>NTD 18,800</p>
+            <p className="club-price-desc" style={{ marginBottom: "1rem" }}>Membership for 12 Months</p>
+            <p className="serif" style={{ fontSize: "1.15rem", color: "var(--muted)", fontStyle: "italic", marginBottom: "3rem" }}>NTD 18,800 / 年</p>
             <ul className="club-price-features serif">
               <li>I. 產業聊聊</li>
               <li>II. 品味社交生活圈</li>
@@ -172,8 +172,8 @@ export default function LooomClubPage() {
               <h3 className="serif club-price-title" style={{ margin: 0 }}>Premium 會籍</h3>
               <span className="caps-label" style={{ color: 'var(--accent)', fontWeight: 700, fontSize: '10px', border: '1px solid var(--accent)', padding: '4px 10px' }}>RECOMMENDED</span>
             </div>
-            <p className="club-price-desc">Membership for 12 Months Premium</p>
-            <p className="serif" style={{ fontSize: '2.2rem', fontWeight: 500, margin: '2rem 0', color: 'var(--accent)' }}>NTD 28,800</p>
+            <p className="club-price-desc" style={{ marginBottom: "1rem" }}>Membership for 12 Months Premium</p>
+            <p className="serif" style={{ fontSize: "1.15rem", color: "var(--accent)", fontStyle: "italic", marginBottom: "3rem" }}>NTD 28,800 / 年</p>
             <ul className="club-price-features serif">
               <li>I. 產業聊聊</li>
               <li>II. 品味社交生活圈</li>
@@ -217,6 +217,60 @@ export default function LooomClubPage() {
             Apply Membership 立即申請會籍
           </a>
         </div>
+      </section>
+
+      {/* MEDIA COVERAGE SECTION */}
+      <section className="club-media-section container" style={{ borderTop: "1px solid var(--border)", paddingTop: "140px", paddingBottom: "140px" }}>
+        <div style={{ borderBottom: '1px solid var(--border)', paddingBottom: '30px', marginBottom: '60px' }}>
+          <span className="caps-label">Media & Editorial Coverage</span>
+          <h2 className="serif" style={{ fontSize: '2.5rem', fontWeight: 400, marginTop: '1rem' }}>媒體報導 Media Coverage</h2>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 2fr",
+            gap: "60px",
+            alignItems: "center"
+          }}
+          className="press-grid-row"
+        >
+          {/* Left Column: Media Source */}
+          <div>
+            <span className="caps-label" style={{ color: "var(--accent)", fontWeight: 700, letterSpacing: "0.15em", display: "block", marginBottom: "1rem" }}>
+              SEPTEMBER 2025
+            </span>
+            <h3 className="serif" style={{ fontSize: "2.4rem", fontWeight: 400, letterSpacing: "-0.02em", color: "var(--ink)" }}>
+              artnet
+            </h3>
+          </div>
+
+          {/* Right Column: Content */}
+          <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <div>
+              <h2 className="serif" style={{ fontSize: "2rem", fontWeight: 400, lineHeight: 1.35, marginBottom: "2rem", color: "var(--ink)" }}>
+                “In Taipei, a patron group called Looom Club”
+              </h2>
+              <p className="serif" style={{ color: "#444", fontSize: "1.2rem", lineHeight: 1.85 }}>
+                Artnet News reports on Looom Club's growing influence on the contemporary art and patron collector ecosystem. The report highlights Taipei's vibrant next-generation cultural patrons, exploring how Looom Club bridges the gap between creative professional leadership and fine arts discourse.
+              </p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Responsive layout styles for press-grid-row */}
+        <style jsx global>{`
+          @media (max-width: 1024px) {
+            .press-grid-row {
+              grid-template-columns: 1fr !important;
+              gap: 30px !important;
+            }
+          }
+        `}</style>
       </section>
 
       {/* FAQ SECTION */}
