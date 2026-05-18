@@ -1072,6 +1072,16 @@ a:hover {
   color: var(--ink);
 }
 
+@media (max-width: 768px) {
+  .club-intro-box {
+    padding: 60px 1.5rem;
+  }
+  .club-intro-text {
+    font-size: 1.15rem;
+    line-height: 1.8;
+  }
+}
+
 .club-pricing-section {
   padding-top: 140px;
   padding-bottom: 140px;
