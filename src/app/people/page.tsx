@@ -72,9 +72,17 @@ export default function PeoplePage() {
           <h1 className="serif" style={{ fontSize: 'clamp(3rem, 6vw, 6rem)', lineHeight: '1', marginTop: '1.5rem', fontWeight: 500 }}>
             Looom People
           </h1>
-          <p className="serif" style={{ fontSize: '1.4rem', color: '#666', marginTop: '2rem', maxWidth: '600px', fontStyle: 'italic', opacity: 0.8 }}>
-            Exploring the intersection of craft, patience, and aesthetics in modern business.
-          </p>
+          <div className="serif" style={{ fontSize: '1.25rem', color: '#666', marginTop: '2.5rem', maxWidth: '800px', fontStyle: 'italic', opacity: 0.9, lineHeight: 1.8 }}>
+            <p style={{ marginBottom: '1.2rem' }}>
+              在品牌創造的拓荒之路上，主理人們經歷了些什麼？有哪些必經的彎路、抑或是困境？
+            </p>
+            <p style={{ marginBottom: '1.8rem' }}>
+              Looom 在此為你書寫，致懷有創造理想的你/妳。
+            </p>
+            <p style={{ fontSize: '1.15rem', opacity: 0.8, lineHeight: 1.7 }}>
+              What have the founders experienced on the pioneering journey of brand creation? What detours or challenges are inevitable along the way? Looom writes this for you, to all those who carry creative ideals in their hearts.
+            </p>
+          </div>
         </motion.div>
       </section>
 
