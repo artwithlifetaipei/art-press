@@ -46,6 +46,8 @@ export default function MobileNav() {
   const links = [
     { name: "Magazine 雜誌", href: "/magazine" },
     { name: "Looom People", href: "/people" },
+    { name: "Looom Club", href: "/looom-club" },
+    { name: "Press 媒體報導", href: "/press" },
     { name: "Contact 聯繫", href: "/contact" }
   ];
 
