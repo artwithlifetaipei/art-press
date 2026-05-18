@@ -92,7 +92,7 @@ export default function LooomClubPage() {
       </section>
 
       {/* INTRO DUO */}
-      <section className="container" style={{ padding: '100px 0' }}>
+      <section className="container" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
         <div className="club-intro-box">
           <motion.p 
             className="club-intro-text serif"
