@@ -316,15 +316,7 @@ export default function LooomClubPage() {
           </div>
 
           <div className="club-contact-details">
-            <div className="club-contact-block">
-              <h4>OFFICE ADDRESS</h4>
-              <p className="serif" style={{ fontWeight: 500 }}>
-                106 台北市大安區大安路一段 175 巷 2 號 1 樓
-              </p>
-              <p className="serif" style={{ color: '#777', fontSize: '1.1rem', marginTop: '0.5rem', fontStyle: 'italic' }}>
-                1F, No. 2, Lane 175, Section 1, Da’an Rd, Da’an District, Taipei City, 106, TAIWAN
-              </p>
-            </div>
+
 
             <div className="club-contact-block">
               <h4>EMAIL CONTACT</h4>

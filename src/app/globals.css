@@ -933,10 +933,16 @@ a:hover {
 .club-hero-subtitle {
   font-size: 1.4rem;
   color: var(--muted);
-  max-width: 750px;
+  max-width: 1000px;
   margin: 0 auto 3rem;
   line-height: 1.8;
   font-style: italic;
+}
+
+@media (min-width: 992px) {
+  .club-hero-subtitle {
+    white-space: nowrap;
+  }
 }
 
 .club-cta-group {
