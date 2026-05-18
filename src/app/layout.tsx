@@ -52,13 +52,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/logo_final.jpg" sizes="any" />
+        <link rel="icon" href="/logo_final.png" sizes="any" />
       </head>
       <body>
         <nav className="global-nav">
           <div className="nav-content">
             <a href="/" className="logo-link">
-              <img src="/logo_final.jpg" alt="ART PRESS" className="logo-img" />
+              <img src="/logo_final.png" alt="LOOOM" className="logo-img" />
             </a>
             <div className="nav-links serif">
               <a href="/magazine">Magazine 雜誌</a>
