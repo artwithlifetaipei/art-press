@@ -188,7 +188,7 @@ export default function PeopleArticlePage() {
           <span className="caps-label" style={{ color: 'var(--accent)', fontWeight: 600 }}>
             {article.tag || (article.category === 'people' ? 'Looom People' : 'Magazine')}
           </span>
-          <h1 className="serif" style={{ fontSize: '3rem', lineHeight: '1.2', margin: '1.5rem 0 2rem', fontWeight: 500, maxWidth: '950px' }}>
+          <h1 className="article-detail-title serif">
             {article.title}
           </h1>
           {article.subtitle && (
