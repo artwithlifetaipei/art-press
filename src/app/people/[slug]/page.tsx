@@ -39,7 +39,7 @@ const articleData: Record<string, any> = {
       { type: 'text', value: "「在年度服裝界盛會 Pitti Uomo 中，除了與國際間的既有夥伴再次聚首交流以外，更讓我們感到興奮的是，能夠藉由這個機會發掘產業中各式各樣的新穎發展，結識新的合作品牌夥伴並將它們帶回台灣，讓大家第一時間接收到最新的國際視野。」這是近期一則來自 GAUTE 發佈在社群平台上的文字，傳遞著品牌價值觀外，也傳遞著希望與顧客們一同積累品味的期待。" },
       { type: 'text', value: "回過頭來，GAUTE 的兩位創辦人 Lawson 和 Lee 很高興能把兩個人的價值觀化作一個品牌，這麼一來，這樣的價值觀既是有脈絡，又能夠在未來將其規模化。經營品牌，不畏懼長遠發展，他們始終確定自己要做的是一個長久的品牌，而不是追求快速的回報。" }
     ],
-    footer: "Looom Club 適合擁有自身事業的主理人與企業高階經理人。"
+    footer: "Looom Club 適合擁有自身事業的創辦人與企業高階經理人。"
   },
   "eme-skincare": {
     tag: "Looom People / Skincare",
@@ -62,7 +62,7 @@ const articleData: Record<string, any> = {
       { type: 'text', value: "好好地讓眼前的顧客理解到產品背後的價值，且與市面上許多產品都不同時時，顧客自然不會那麼容易陷入一昧的比價狀態了。<b>「有時，捕捉到的一抹陽光，乍看之下是條遠路，但其實是最好的路。」</b>" },
       { type: 'text', value: "Zoey 相信，做品牌是一個漫長的旅程。在這個過程中，她堅持不使用過多的化學添加物，而是選擇更高成本、但對皮膚更友善的天然成分。這種「慢」在當前的工業體系中顯得格格不入，但卻是她保護品牌靈魂的方式。" }
     ],
-    footer: "Looom Club 適合擁有自身事業的主理人與企業高階經理人。"
+    footer: "Looom Club 適合擁有自身事業的創辦人與企業高階經理人。"
   },
   "dan-retro": {
     tag: "Looom People / Furniture",
@@ -82,7 +82,7 @@ const articleData: Record<string, any> = {
       { type: 'text', value: "<b>「如果，前方的路很暗，你必須要為你自己點亮屬於你自己的燈。」</b>", bold: true },
       { type: 'text', value: "這盞燈，就是對於品質的執著，以及對於美學不妥協的勇氣。Dan 認為，品牌的核心在於主理人的性格。如果你熬不住寂寞，那麼你的品牌也會隨波逐流。" }
     ],
-    footer: "Looom Club 適合擁有自身事業的主理人與企業高階經理人。"
+    footer: "Looom Club 適合擁有自身事業的創辦人與企業高階經理人。"
   },
   "yangi": {
     tag: "Looom People / Fashion",
@@ -101,7 +101,7 @@ const articleData: Record<string, any> = {
       { type: 'image', value: "https://i0.wp.com/theartpressasia.com/wp-content/uploads/2025/06/IMG_7151.jpg?resize=596%2C740&ssl=1", caption: "Photo via YANGI and Allen Yang" },
       { type: 'text', value: "「如果你完全不聽市場的，那你可能會很快消失；但如果你完全迎合市場，那你就不是你原本想做的那個品牌了。」YANGI 的存在，就是為了證明在這種平衡中，依然可以創造出具有力量且不失風格的作品。" }
     ],
-    footer: "Looom Club 適合擁有自身事業的主理人與企業高階經理人。"
+    footer: "Looom Club 適合擁有自身事業的創辦人與企業高階經理人。"
   }
 };
 
@@ -265,7 +265,7 @@ export default function PeopleArticlePage() {
 
         <div style={{ marginTop: '120px', padding: '60px', border: '1px solid #EEE', textAlign: 'center' }}>
           <p className="serif" style={{ fontSize: '1.4rem', marginBottom: '2rem' }}>
-            {article.footer || "Looom Club 適合擁有自身事業的主理人與企業高階經理人，能在有限的時間裡高效率交流。"}
+            {article.footer || "Looom Club 適合擁有自身事業的創辦人與企業高階經理人，能在有限的時間裡高效率交流。"}
           </p>
           <a href="/contact" style={{ display: 'inline-block', padding: '15px 40px', backgroundColor: '#000', color: '#FFF', fontSize: '12px', letterSpacing: '0.2em', textTransform: 'uppercase', fontWeight: 600 }}>
             Apply Membership

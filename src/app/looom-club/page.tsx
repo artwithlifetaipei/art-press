@@ -101,7 +101,7 @@ export default function LooomClubPage() {
             viewport={{ once: true }}
             transition={{ duration: 1.2 }}
           >
-            Looom Club 適合擁有自身事業的主理人與企業高階經理人，能在有限的時間裡高效率交流。
+            Looom Club 適合擁有自身事業的創辦人與企業高階經理人，能在有限的時間裡高效率交流。
             透過入會篩選流程，讓大家在專注事業發展的同時，也能結識正在努力前進的新朋友。
           </motion.p>
         </div>

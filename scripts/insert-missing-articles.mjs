@@ -35,7 +35,7 @@ const EME_CONTENT = [
   { type: 'text', bold: true, caption: '', value: '「其實，做品牌從來都是無法求快的。」Zoey 說道。' },
   { type: 'text', bold: false, caption: '', value: 'EME Skincare｜@EMESkincare_official\nEME相信，我們值得追求的不只是短暫的美麗，而是長久的健康光采。真正美麗的肌膚來自於健康的根基，每款產品都不含防腐劑、人造色素、酒精、礦物油、螢光劑和香精，選用的成分天然的同時也結合創新科技，努力為每一位消費者在溫和中帶來明顯效果。' },
   { type: 'text', bold: false, caption: '', value: 'EME Official｜@EME_theeme\nEME 主理人 Zoey Fang 所創下的選品品牌。從 Maison ZF、ZOEYF Showroom，到如今的 EME Official，帶給喜歡 Parisian Chic 風格的台灣質感女性們，倡議著 "Less is more" 的生活哲學，是主理人十多年來不變的初衷。' },
-  { type: 'text', bold: false, caption: '', value: '——————————\n在過去，台灣有許多傳統形式的社群，但 Looom Club 與這些傳統精英社群不同。\nLooom Club 適合擁有自身事業的主理人與企業高階經理人，能在有限的時間裡高效率交流。透過入會篩選流程，讓大家在專注事業發展的同時，也能結識正在努力前進的新朋友。' },
+  { type: 'text', bold: false, caption: '', value: '——————————\n在過去，台灣有許多傳統形式的社群，但 Looom Club 與這些傳統精英社群不同。\nLooom Club 適合擁有自身事業的創辦人與企業高階經理人，能在有限的時間裡高效率交流。透過入會篩選流程，讓大家在專注事業發展的同時，也能結識正在努力前進的新朋友。' },
 ];
 
 // ── Dan Retro & Furniture Content (from WordPress) ────────────────────────────
@@ -53,7 +53,7 @@ const DAN_CONTENT = [
   { type: 'text', bold: false, caption: '', value: '如今，當眾人在生活裡談論著蔚為風潮的「MIX & MATCH」，甚至也開始認為古董也是當代的時髦樣貌之一時，Dan 的選品品味則是多年前就已經確立了這個路線，且無論傢俱市場流行風潮如何，都絲毫不左右他當初設定的品牌精神。' },
   { type: 'text', bold: false, caption: '', value: '這象徵著：做屬於自己的品牌，乍看事件沒有門檻，好似有個名字、畫了LOGO創立了 Instagram 帳號後就能輕易發生的事情。創立品牌確實是一件充滿無限可能的事，但要能做出差異化、且不計眼前成果如何都選擇投入，也就是能夠堅持下去，正如 Dan 所說的「能熬」，能傳遞精神與價值，才能真正成就一個「品牌」，而非只是「賣貨」。' },
   { type: 'text', bold: false, caption: '', value: 'Dan Retro & furniture｜@dan_decoantique\n經營古董老件品牌長達8年，現有一百坪展間（新北市新莊區中正路831-1號2樓），以及一間工作室（桃園市龜山區文學路202號），同時，也身兼許多質感與當代風格的設計公司軟裝師與家居品味顧問。' },
-  { type: 'text', bold: false, caption: '', value: '——————————\n在過去，台灣有許多傳統形式的社群，但 Looom Club 與這些傳統精英社群不同。\nLooom Club 適合擁有自身事業的主理人與企業高階經理人，能在有限的時間裡高效率交流。透過入會篩選流程，讓大家在專注事業發展的同時，也能結識正在努力前進的新朋友。' },
+  { type: 'text', bold: false, caption: '', value: '——————————\n在過去，台灣有許多傳統形式的社群，但 Looom Club 與這些傳統精英社群不同。\nLooom Club 適合擁有自身事業的創辦人與企業高階經理人，能在有限的時間裡高效率交流。透過入會篩選流程，讓大家在專注事業發展的同時，也能結識正在努力前進的新朋友。' },
 ];
 
 async function run() {
