@@ -298,7 +298,7 @@ export default function ArticleEditor() {
           <div style={{ display: 'flex', gap: '10px' }}>
             <button onClick={() => addBlock('text')} style={{ padding: '8px 16px', border: '1px solid #CCC', background: '#FFF', cursor: 'pointer', fontSize: '0.8rem' }}>+ Text</button>
             <button onClick={() => addBlock('subheading')} style={{ padding: '8px 16px', border: '1px solid #CCC', background: '#FFF', cursor: 'pointer', fontSize: '0.8rem' }}>+ Subheading</button>
-            <button onClick={() => addBlock('image')} style={{ padding: '8px 16px', border: '1px solid #CCC', background: '#FFF', cursor: 'pointer', fontSize: '0.8rem' }}>+ Image</button>
+            <button onClick={() => addBlock('image')} style={{ padding: '8px 16px', border: '1px solid #CCC', background: '#FFF', cursor: 'pointer', fontSize: '0.8rem' }}>+ Image / Video</button>
           </div>
         </div>
 
@@ -312,7 +312,7 @@ export default function ArticleEditor() {
               style={{ padding: '20px', border: '1px solid #E8E8E8', backgroundColor: '#FAFAFA', position: 'relative' }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '15px' }}>
-                <span className="caps-label" style={{ color: '#B29B6E' }}>{block.type.toUpperCase()} BLOCK</span>
+                <span className="caps-label" style={{ color: '#B29B6E' }}>{block.type === 'image' ? 'IMAGE / VIDEO' : block.type.toUpperCase()} BLOCK</span>
                 <div style={{ display: 'flex', gap: '10px' }}>
                   <button onClick={() => moveBlock(index, 'up')} disabled={index === 0} style={{ cursor: 'pointer', background: 'none', border: 'none', color: '#666' }}><ArrowUp size={16}/></button>
                   <button onClick={() => moveBlock(index, 'down')} disabled={index === blocks.length - 1} style={{ cursor: 'pointer', background: 'none', border: 'none', color: '#666' }}><ArrowDown size={16}/></button>
@@ -349,19 +349,25 @@ export default function ArticleEditor() {
               {block.type === 'image' && (
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
                   {block.value && (
-                    <div><img src={block.value} alt="Preview" style={{ width: '100%', maxWidth: '200px', border: '1px solid #EEE' }}/></div>
+                    <div>
+                      {block.value && /\.(mp4|webm|ogg|mov|m4v)$/i.test(block.value.split('?')[0]) ? (
+                        <video src={block.value} controls style={{ width: '100%', maxWidth: '300px', height: 'auto', border: '1px solid #EEE' }} />
+                      ) : (
+                        <img src={block.value} alt="Preview" style={{ width: '100%', maxWidth: '200px', border: '1px solid #EEE' }}/>
+                      )}
+                    </div>
                   )}
                   <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <label style={{ padding: '10px 15px', backgroundColor: '#FFF', border: '1px solid #CCC', cursor: 'pointer', fontSize: '0.8rem' }}>
                       {uploading ? '...' : 'Upload File'}
-                      <input type="file" accept="image/*" style={{ display: 'none' }} onChange={(e) => uploadImage(e, 'block', index)} disabled={uploading} />
+                      <input type="file" accept="image/*,video/*" style={{ display: 'none' }} onChange={(e) => uploadImage(e, 'block', index)} disabled={uploading} />
                     </label>
                     <span style={{ fontSize: '0.8rem', color: '#777' }}>Or URL:</span>
                     <input 
                       type="text" 
                       value={block.value} 
                       onChange={e => updateBlock(index, 'value', e.target.value)}
-                      placeholder="Image URL..."
+                      placeholder="Image or Video URL..."
                       style={{ flex: 1, padding: '10px', border: '1px solid #CCC' }}
                     />
                   </div>

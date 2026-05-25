@@ -85,9 +85,14 @@ export default function ArticleClient({ article }: { article: any }) {
           } else if (block.type === 'image') {
             const imgSrc = block.url || block.value;
             if (!imgSrc) return null;
+            const isVideo = /\.(mp4|webm|ogg|mov|m4v)$/i.test(imgSrc.split('?')[0]);
             return (
               <div key={i} style={{ margin: '80px 0' }}>
-                <img src={imgSrc} alt="Content" style={{ width: '100%', height: 'auto' }} />
+                {isVideo ? (
+                  <video src={imgSrc} controls playsInline style={{ width: '100%', height: 'auto', display: 'block' }} />
+                ) : (
+                  <img src={imgSrc} alt="Content" style={{ width: '100%', height: 'auto' }} />
+                )}
                 {block.caption && (
                   <p style={{ fontSize: '12px', color: '#AAA', textAlign: 'right', marginTop: '1rem', fontStyle: 'italic' }}>{block.caption}</p>
                 )}

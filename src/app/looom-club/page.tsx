@@ -42,12 +42,12 @@ export default function LooomClubPage() {
 
   const faqs = [
     {
-      cn: "若您的品牌事業剛開始，即品牌創辦不到 1 年內者，你對於產品製造、季度產品拍攝規劃、行銷規劃等議題該花多少錢，都還沒有概念的話，為了避免花錯錢、白花錢，那 Looom Club 或許可以幫助到你。",
-      en: "If your brand is under a year old and you're unsure how to budget for production, photoshoots, or marketing, Looom Club might help you avoid costly mistakes."
+      cn: "若您的品牌已跨越初創期，具備初步的市場驗證與營收基礎：在面對供應鏈規模化、高規格的季度視覺企劃、以及進階行銷預算配置時，若您期望能更精準地評估投資報酬率並優化資源配置。透過 Looom Club 每季舉辦的「閉門共學季會」，您能與成熟品牌主進行實戰經驗交流，精準避開擴張期的試錯成本，將資金效益極大化。",
+      en: "If your brand has crossed the startup stage and established a basic market proof and revenue stream: when facing supply chain scaling, high-end seasonal visuals, and strategic marketing budgets, Looom Club's quarterly closed-door summits connect you with seasoned founders to optimize ROI and avoid expansion pitfalls."
     },
     {
-      cn: "若您的品牌事業正值初期發展期，即約創辦 1-2 年內者，對於買氣趨勢、通路比較、產品組合安排、折扣力度、庫存週轉、人貨等各項數字指標概念，還無法一一釐清，那 Looom Club 或許可以幫助到你。",
-      en: "If your brand is 1–2 years in and you're still unsure about sales trends, channels, pricing, or inventory, Looom Club could help you gain clarity."
+      cn: "若您的品牌正處於高速擴張期，面臨更複雜的商業挑戰：當您需要深度探討市場買氣趨勢、跨通路佈局與談判、產品組合矩陣優化、精細化的庫存週轉率，以及進階的人、貨、場等各項數據指標時。Looom Club 的「閉門共學季會」能為您提供高維度的商業思維碰撞，協助您釐清營運盲區，突破品牌成長天花板。",
+      en: "If your brand is in high-speed expansion and facing complex commercial hurdles: when navigating market trends, multi-channel negotiations, product matrix optimizations, and inventory turnover, Looom Club provides high-dimensional business strategy sharing to break growth ceilings."
     },
     {
       cn: "若您的品牌事業已經脫離發展期，即創辦 2 年以上者，且在品牌貴賓經營、品牌貴賓人數擴張上感到吃力時，那 Looom Club 或許可以幫助到你。",
