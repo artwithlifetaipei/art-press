@@ -46,8 +46,8 @@ export default function LooomClubPage() {
       en: "If your brand has crossed the startup stage and established a basic market proof and revenue stream: when facing supply chain scaling, high-end seasonal visuals, and strategic marketing budgets, Looom Club's quarterly closed-door summits connect you with seasoned founders to optimize ROI and avoid expansion pitfalls."
     },
     {
-      cn: "若您的品牌正處於高速擴張期，面臨更複雜的商業挑戰：當您需要深度探討市場買氣趨勢、跨通路佈局與談判、產品組合矩陣優化、精細化的庫存週轉率，以及進階的人、貨、場等各項數據指標時。Looom Club 的「閉門共學季會」能為您提供高維度的商業思維碰撞，協助您釐清營運盲區，突破品牌成長天花板。",
-      en: "If your brand is in high-speed expansion and facing complex commercial hurdles: when navigating market trends, multi-channel negotiations, product matrix optimizations, and inventory turnover, Looom Club provides high-dimensional business strategy sharing to break growth ceilings."
+      cn: "若您的品牌正處於高速擴張期，面臨更複雜的商業挑戰：\n當您需要深度探討市場買氣趨勢、跨通路佈局與談判、產品組合矩陣優化、精細化的庫存週轉率，以及進階的人、貨、場等各項數據指標時。Looom Club 的「閉門共學季會」、「領域專業顧問」等，能為您提供高維度的商業思維碰撞，協助您釐清營運盲區，突破品牌成長天花板。",
+      en: "If your brand is in high-speed expansion and facing complex commercial hurdles:\nwhen navigating market trends, multi-channel negotiations, product matrix optimizations, and inventory turnover, Looom Club provides quarterly summits and expert advisor matchmaking to break growth ceilings."
     },
     {
       cn: "若您的品牌事業已經脫離發展期，即創辦 2 年以上者，且在品牌貴賓經營、品牌貴賓人數擴張上感到吃力時，那 Looom Club 或許可以幫助到你。",
@@ -294,11 +294,11 @@ export default function LooomClubPage() {
                 viewport={{ once: true }}
                 transition={{ duration: 1 }}
               >
-                <div className="club-faq-chinese serif">
+                <div className="club-faq-chinese serif" style={{ whiteSpace: 'pre-line' }}>
                   <span style={{ color: 'var(--accent)', fontWeight: 600, marginRight: '1rem' }}>Q:</span>
                   {faq.cn}
                 </div>
-                <div className="club-faq-english serif">
+                <div className="club-faq-english serif" style={{ whiteSpace: 'pre-line' }}>
                   {faq.en}
                 </div>
               </motion.div>
