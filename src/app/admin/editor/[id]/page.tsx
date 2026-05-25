@@ -45,7 +45,10 @@ export default function ArticleEditor() {
   };
 
   const handleSave = async (statusOverride?: 'draft' | 'published') => {
-    if (!article.title || !article.slug) {
+    const trimmedTitle = article.title.trim();
+    const trimmedSlug = article.slug.trim().replace(/\s+/g, '-');
+
+    if (!trimmedTitle || !trimmedSlug) {
       alert('Title and Slug are required');
       return;
     }
@@ -53,7 +56,12 @@ export default function ArticleEditor() {
     try {
       // If no status provided, keep current status. If provided, update it.
       const finalStatus = statusOverride || article.status || 'draft';
-      const payload = { ...article, content: blocks, status: finalStatus, is_hero: isHero };
+      const updatedArticle = {
+        ...article,
+        title: trimmedTitle,
+        slug: trimmedSlug,
+      };
+      const payload = { ...updatedArticle, content: blocks, status: finalStatus, is_hero: isHero };
       
       // remove id from payload to avoid conflict on insert
       const { id, ...insertPayload } = payload as any;
