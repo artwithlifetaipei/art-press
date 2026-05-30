@@ -26,6 +26,7 @@ export const metadata: Metadata = {
 
 import PageTransition from "@/components/PageTransition";
 import MobileNav from "@/components/MobileNav";
+import Search from "@/components/Search";
 
 const InstagramIcon = ({ size = 24 }: { size?: number }) => (
   <svg
@@ -70,6 +71,7 @@ export default function RootLayout({
               <a href="https://www.instagram.com/looomasia/" target="_blank" rel="noopener noreferrer" className="social-icon desktop-only">
                 <InstagramIcon size={18} />
               </a>
+              <Search />
               <MobileNav />
             </div>
           </div>
