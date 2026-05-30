@@ -80,6 +80,25 @@ a:hover {
   font-family: var(--font-serif);
 }
 
+.nav-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icon:hover {
+  color: var(--accent);
+  transform: scale(1.05);
+}
+
 /* Homepage Hero (The "Cover" Refinement) */
 .hero-section-v4 {
   padding: 60px 0;
