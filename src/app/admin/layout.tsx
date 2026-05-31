@@ -3,6 +3,18 @@
 import { useEffect, useState } from 'react';
 import { LogOut } from 'lucide-react';
 
+const safeStorage = {
+  getItem: (key: string) => {
+    try { return localStorage.getItem(key); } catch (e) { return null; }
+  },
+  setItem: (key: string, val: string) => {
+    try { localStorage.setItem(key, val); } catch (e) {}
+  },
+  removeItem: (key: string) => {
+    try { localStorage.removeItem(key); } catch (e) {}
+  }
+};
+
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [email, setEmail] = useState('');
@@ -12,7 +24,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   useEffect(() => {
     // Check if session exists in localStorage
-    const session = localStorage.getItem('looom_admin_session');
+    const session = safeStorage.getItem('looom_admin_session');
     if (session === 'true') {
       setIsAuthenticated(true);
     } else {
@@ -30,7 +42,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     const ADMIN_PASSWORD = 'LIUKUO05100413';
 
     if (email.trim().toLowerCase() === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
-      localStorage.setItem('looom_admin_session', 'true');
+      safeStorage.setItem('looom_admin_session', 'true');
       setIsAuthenticated(true);
     } else {
       setError('帳號或密碼輸入錯誤，請重新輸入。');
@@ -39,7 +51,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   };
 
   const handleSignOut = () => {
-    localStorage.removeItem('looom_admin_session');
+    safeStorage.removeItem('looom_admin_session');
     setIsAuthenticated(false);
   };
 
