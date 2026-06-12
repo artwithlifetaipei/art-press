@@ -5,19 +5,29 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search as SearchIcon, X, Sparkles, CornerDownLeft } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 
-// High-end default list of artist/interviewee names if database hasn't loaded yet
-const DEFAULT_ARTIST_NAMES = [
+// Predefined list of popular artist and interviewee names representing featured pages
+const POPULAR_NAMES = [
   "Patricia Domínguez",
   "Zoey Fang",
   "Dan",
   "楊艾倫 Allen Yang",
-  "GAUTE"
+  "GAUTE",
+  "鄭在東",
+  "吳東龍",
+  "張徐展",
+  "皆川明 Akira Minagawa",
+  "Anri Sala",
+  "李若玫 Lee Jo-Mei",
+  "Veronica Ryan",
+  "Arman 阿曼",
+  "許光漢",
+  "Bonny Liu"
 ];
 
 export default function Search() {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState("");
-  const [articles, setArticles] = useState<any[]>([]);
+  const [filteredResults, setFilteredResults] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
   const [suggestedNames, setSuggestedNames] = useState<string[]>([]);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -37,77 +47,57 @@ export default function Search() {
     };
   }, [isOpen]);
 
-  // Fetch articles from Supabase when the search is first opened
+  // Dynamically pick 5 random suggestions when search is opened
   useEffect(() => {
-    if (!isOpen || articles.length > 0) return;
+    if (isOpen) {
+      const shuffled = [...POPULAR_NAMES].sort(() => 0.5 - Math.random());
+      setSuggestedNames(shuffled.slice(0, 5));
+    }
+  }, [isOpen]);
 
-    async function fetchAllArticles() {
+  // Server-side database query with 300ms debounce
+  useEffect(() => {
+    if (!query.trim()) {
+      setFilteredResults([]);
+      setLoading(false);
+      return;
+    }
+
+    const handler = setTimeout(async () => {
       try {
         setLoading(true);
-        // Fetch published articles
+        const q = query.trim().toLowerCase();
+        
+        // Sanitize to avoid breaking PostgREST formatting (e.g. comma, parentheses)
+        const sanitizedQ = q.replace(/[,()#?%&]/g, "");
+        
+        if (!sanitizedQ) {
+          setFilteredResults([]);
+          setLoading(false);
+          return;
+        }
+
         const { data, error } = await supabase
           .from('articles')
-          .select('id, slug, title, subtitle, english_title, image, tag, category, date, content')
+          .select('id, slug, title, subtitle, english_title, image, tag, category, date')
+          .or(`title.ilike.%${sanitizedQ}%,subtitle.ilike.%${sanitizedQ}%,english_title.ilike.%${sanitizedQ}%,tag.ilike.%${sanitizedQ}%`)
           .eq('status', 'published')
-          .order('created_at', { ascending: false });
+          .order('created_at', { ascending: false })
+          .limit(20);
 
         if (error) throw error;
         if (data) {
-          setArticles(data);
+          setFilteredResults(data);
         }
       } catch (err) {
-        console.error('Failed to load articles for search:', err);
+        console.error('Failed to query articles:', err);
       } finally {
         setLoading(false);
       }
-    }
+    }, 300);
 
-    fetchAllArticles();
-  }, [isOpen, articles.length]);
-
-  // Dynamically extract artist or interviewee names from articles and select a random subset
-  useEffect(() => {
-    if (!isOpen) return;
-
-    const namesSet = new Set<string>(DEFAULT_ARTIST_NAMES);
-
-    // Extract names from fetched articles dynamically
-    articles.forEach(article => {
-      const title = article.title || "";
-      const subtitle = article.subtitle || "";
-      const text = `${title} ${subtitle}`;
-
-      // Check specific known names
-      if (text.includes("Patricia Domínguez")) namesSet.add("Patricia Domínguez");
-      if (text.includes("Zoey Fang")) namesSet.add("Zoey Fang");
-      if (text.includes("楊艾倫") || text.includes("Allen Yang")) namesSet.add("楊艾倫 Allen Yang");
-      if (text.includes("Dan")) namesSet.add("Dan");
-      if (text.includes("GAUTE")) namesSet.add("GAUTE");
-
-      // Robust pattern extraction for "主理人 [Name]", "創辦人 [Name]", "專訪 [Name]"
-      const hostMatch = text.match(/(?:主理人|創辦人|專訪藝術家)\s*([a-zA-Z\u4e00-\u9fa5\s]+?)(?:$|[\—\-\s，。、「」])/);
-      if (hostMatch && hostMatch[1]) {
-        const name = hostMatch[1].trim();
-        if (name.length > 1 && name.length < 20 && !name.includes("專訪") && !name.includes("品牌")) {
-          namesSet.add(name);
-        }
-      }
-
-      const interviewMatch = text.match(/專訪\s*([a-zA-Z\u4e00-\u9fa5\s]+?)(?:$|[\—\-\s，。、「」])/);
-      if (interviewMatch && interviewMatch[1]) {
-        const name = interviewMatch[1].trim();
-        if (name.length > 1 && name.length < 20 && !name.includes("創辦人") && !name.includes("主理人") && !name.includes("品牌")) {
-          namesSet.add(name);
-        }
-      }
-    });
-
-    // Convert Set to array and shuffle
-    const allNames = Array.from(namesSet);
-    const shuffled = [...allNames].sort(() => 0.5 - Math.random());
-    // Select 4-5 names randomly
-    setSuggestedNames(shuffled.slice(0, 5));
-  }, [isOpen, articles]);
+    return () => clearTimeout(handler);
+  }, [query]);
 
   // Focus input on open
   useEffect(() => {
@@ -146,38 +136,7 @@ export default function Search() {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, activeIndex, articles]);
-
-  // Client-side search matching logic
-  const filteredResults = useMemo(() => {
-    if (!query.trim()) return [];
-    
-    const q = query.toLowerCase().trim();
-    
-    return articles.filter(article => {
-      const title = (article.title || "").toLowerCase();
-      const subtitle = (article.subtitle || "").toLowerCase();
-      const englishTitle = (article.english_title || "").toLowerCase();
-      const tag = (article.tag || "").toLowerCase();
-      const category = (article.category || "").toLowerCase();
-
-      // Check article body contents
-      let bodyMatch = false;
-      if (article.content) {
-        const contentStr = typeof article.content === 'string' 
-          ? article.content.toLowerCase() 
-          : JSON.stringify(article.content).toLowerCase();
-        bodyMatch = contentStr.includes(q);
-      }
-
-      return title.includes(q) || 
-             subtitle.includes(q) || 
-             englishTitle.includes(q) || 
-             tag.includes(q) || 
-             category.includes(q) ||
-             bodyMatch;
-    });
-  }, [query, articles]);
+  }, [isOpen, activeIndex, filteredResults]);
 
   const handleSuggestionClick = (name: string) => {
     setQuery(name);
