@@ -58,13 +58,164 @@ const DAN_CONTENT = [
 ];
 
 const YANGI_CONTENT = [
-  { type: 'text', value: "不論是創作或是做品牌，對你來說，絕對不能妥協的是什麼？", bold: true },
-  { type: 'text', value: "「做品牌這一塊最辛苦的。就是你會對台灣服裝產業的現況很有想法，可是一個人的力量，其實很難去改變整個產業，甚至幾乎是不可能。」楊艾倫說。" },
-  { type: 'image', value: "https://i0.wp.com/theartpressasia.com/wp-content/uploads/2025/06/IMG_13C67A7F4BB0-1-e1749187985416-499x740.jpeg?resize=499%2C740&ssl=1", caption: "Photo via YANGI and Allen Yang" },
-  { type: 'text', value: "<b>「最難的不是創作，而是平衡。有時候你會懷疑：我要捨棄那個理想去迎合市場嗎？」</b>", bold: true },
-  { type: 'text', value: "Allen 坦言，在台灣經營男裝品牌充滿挑戰。市場規模小、消費者對於原創設計的接受度尚在培養中，這讓他必須在「極致的自我表達」與「商業上的生存」之間不斷拉鋸。但他認為，這種拉鋸正是品牌成形的必經之路。" },
-  { type: 'image', value: "https://i0.wp.com/theartpressasia.com/wp-content/uploads/2025/06/IMG_7151.jpg?resize=596%2C740&ssl=1", caption: "Photo via YANGI and Allen Yang" },
-  { type: 'text', value: "「如果你完全不聽市場的，那你可能會很快消失；但如果你完全迎合市場，那你就不是你原本想做的那個品牌了。」YANGI 的存在，就是為了證明在這種平衡中，依然可以創造出具有力量且不失風格的作品。" }
+  {
+    "type": "text",
+    "value": "不論是創作或是做品牌，對你來說，絕對不能妥協的是什麼？",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "text",
+    "value": "被時尚媒體與眾人稱為「新時代潮流 ICON」、「潮流金童」的楊艾倫（Allen Yang），除了各大品牌邀約合作之外，不久前，他更是少數受邀出席巴黎時裝周 LOUIS VUITTON 男裝秀的一員。在潮流與時裝領域的多年累積，這些底蘊，再加上他自小對服飾真實的愛，他創立了名為 YANGI 的獨立品牌。然而，也正因為他對時尚和服裝產業有著極深且赤裸的了解，他在品牌策略上的抉擇，也顯得更加不容易。",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "text",
+    "value": "「你明明知道什麼會紅、什麼會有流量，但你有沒有辦法偏不做那些東西？」楊艾倫說道。",
+    "bold": true,
+    "caption": ""
+  },
+  {
+    "type": "image",
+    "value": "https://i0.wp.com/tapeverythingcom.wpcomstaging.com/wp-content/uploads/2025/06/IMG_13C67A7F4BB0-1-e1749187985416-499x740.jpeg?resize=499%2C740&ssl=1",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "text",
+    "value": "「最難的不是創作，而是平衡。有時候你會懷疑：我要捨棄那個理想去迎合市場嗎？還是先活下來、賺錢再說？」楊艾倫說。",
+    "bold": true,
+    "caption": ""
+  },
+  {
+    "type": "text",
+    "value": "顯然地，潮流人們精神裡的 cool kids 是必須精神與行動合一地，在各個角落展現態度的。 「 其實我在這條路上，並沒有太多轉捩點，反而是要在路途中去排除掉很多的雜音，才能一直處在自己希望的樣子。」",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "text",
+    "value": "許多人可能難以想像楊艾倫喜歡服裝、鍾愛創作有多久了。這對他來說，並不是隨著在潮流與時裝領域累積直到有了今天的底蘊後才想做的事。從小家裡便有著美術環境的楊艾倫，在求學階段時，一次因為自己畫的東西「過於狂放不羈」，而被訓導主任罰了。「 我還記得當時美術老師到訓導處跟主任說『你不能罰他，因為你這樣子罰他，可能會抹滅一個學生的藝術心。』我被這美術老師救出來，我就沒有再繼續罰。」",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "image",
+    "value": "https://i0.wp.com/tapeverythingcom.wpcomstaging.com/wp-content/uploads/2025/06/IMG_7151.jpg?resize=596%2C740&ssl=1",
+    "bold": false,
+    "caption": "Photo via YANGI and 楊艾倫 Allen Yang"
+  },
+  {
+    "type": "text",
+    "value": "「 消費者的每一次選擇，都在形塑這整個社會跟這整個群體。」楊艾倫語重心長地，敘述著台灣服裝產業的種種過往與現況。",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "text",
+    "value": "他坦誠地認為，身為消費者的我們，是最快樂但同時也是責任最大的。身為消費者，排除買或不買，我們都不需要去苦苦抉擇這一季要不要隨著流行發表什麼風格的衣服，只需要觀賞並體驗品牌們的作品；然而，眾所皆知地，消費者也肩負著整體環境與產業未來的重責大任。",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "text",
+    "value": "「台灣的服裝產業就是長這個樣子。每一個藝術家、或是從無到有創造出東西的人，一定會經歷過例如『為什麼這個世界或是受眾沒辦法接受我的東西』等的心路歷程。」楊艾倫的語重心長裡，同時也帶著對台灣男裝產業的深深瞭解與觀察。從產業裡互相比便宜的惡性競爭、到抄襲也無仿的風氣，相信許多同為服裝產業的同業都能共感這樣的無奈。「像做品牌，我當然也可以去任何一個工廠，做一件便宜很多的 T-shirt 賣給你，但我為什麼要用更好的布料、更細的剪裁，更好的呈現方式去做。因為這樣做，這個產業才會有多一個不一樣的選擇出來。不然就都一樣在比便宜。」楊艾倫說。",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "image",
+    "value": "https://i0.wp.com/tapeverythingcom.wpcomstaging.com/wp-content/uploads/2025/06/%E6%9C%AA%E5%91%BD%E5%90%8D%E8%A8%AD%E8%A8%88-7.png?resize=740%2C416&ssl=1",
+    "bold": false,
+    "caption": "Photo via YANGI and 楊艾倫 Allen Yang"
+  },
+  {
+    "type": "text",
+    "value": "「做品牌這一塊最辛苦的。就是你會對台灣服裝產業的現況很有想法，可是一個人的力量，其實很難去改變整個產業，甚至幾乎是不可能。」楊艾倫說。",
+    "bold": true,
+    "caption": ""
+  },
+  {
+    "type": "text",
+    "value": "相信無論是品牌主理人或是消費者都能理解，「便宜」的東西，消費者決策起來確實是比較沒有壓力，例如萬一發現買錯了、或是過幾天發現這件衣服只是一時衝動所以買了時，損失的成本會比較少。「但如果貴一點點，但是可以穿比較久而不是過一年或甚至是一季就不會再穿了呢？這背後的成本是不是也會被 balance 掉？」",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "text",
+    "value": "楊艾倫帶領我們思考一個情境：假設一件貴3000但可以穿20次的衣服，對比便宜3000塊但只穿3次的衣服；抑或是，大家覺得790的衣服比較買得下去而不選擇一件4000的，但累計起來花費卻是一樣時…。這些問題若是你，你會如何思考？然而，其實這些問題的背後，並沒有所謂的標準答案。",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "image",
+    "value": "https://i0.wp.com/tapeverythingcom.wpcomstaging.com/wp-content/uploads/2025/06/%E6%9C%AA%E5%91%BD%E5%90%8D%E8%A8%AD%E8%A8%88-9.png?resize=740%2C416&ssl=1",
+    "bold": false,
+    "caption": "除了選材用料與做工之外，服裝輔料細節選擇也十足用心。Photo via YANGI and 楊艾倫 Allen Yang"
+  },
+  {
+    "type": "text",
+    "value": "楊艾倫真心希望探討的，並不是「便宜一定沒好貨」、或是「貴的一定比較好」，而是希望消費者如果可以在生活中實踐著「有意識的識別」、「有意識的選擇或不選擇」，就算發現決策錯了，也還是可以從中學到一些東西，這會讓自己日後在買衣服時便會更有想法，而當越穿越有想法時，也就能越穿越好看。",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "text",
+    "value": "「如果很多事情真的要進步的話，是需要我們每一個人都多多思考一點點這些事情，而不是就覺得便宜就好。」楊艾倫說道。",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "text",
+    "value": "想像一個美好的服裝品牌產業與零售環境：當消費者是何等地有意識，品牌主理人們也是何等地認真開創設計、每一季都讓消費者們的眼睛與靈魂都充滿收穫、也因處在杜絕抄襲的良性競爭環境而越來越有國際競爭力…。而不是市場時而對便宜且充滿複製的服飾充滿謾罵，但卻不時依然「不得不」選擇「便宜」；而當市場上也始終充斥著差不多的產品，最後逼的品牌主理人們說出「不敢賣太貴」的無奈之語，抑或是身為消費者眾人，對這樣的服裝市場感到無趣。",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "image",
+    "value": "https://i0.wp.com/tapeverythingcom.wpcomstaging.com/wp-content/uploads/2025/06/IMG_7146-1.jpg?resize=599%2C740&ssl=1",
+    "bold": false,
+    "caption": "Photo via YANGI and 楊艾倫 Allen Yang"
+  },
+  {
+    "type": "text",
+    "value": "任何時候，創造改變，都是一件困難的事。",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "text",
+    "value": "然而，對楊艾倫來說，服裝產業跟多數事情一樣，倘若只希望眼前「好」就好，而不管以後整個環境怎麼樣的話，那對不管是品牌主理人，還是消費者自己來說，這個心態恐怕都會讓我們每一個人走到無路可走。",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "text",
+    "value": "YANGI ｜@yangi.official",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "text",
+    "value": "2024年，由 Pharrell Williams 打造的服飾品牌 Billionaire Boys Club 以旗下支線 ICECREAM 攜手台灣服裝品牌 YANGI 推出聯名系列，帶來多款讓人驚艷的單品。而在今年2025年，服裝品牌 YANGI 也與國際時尚配件品牌 CASETiFY 首次合作，融合了水洗布料質感、汽車復古元素和多彩潑漆視覺呈現聯名作。",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "text",
+    "value": "在過去，台灣有許多傳統形式的社群，但 Looom Club 與這些傳統精英社群不同。",
+    "bold": false,
+    "caption": ""
+  },
+  {
+    "type": "text",
+    "value": "Looom Club 適合擁有自身事業的主理人與企業高階經理人，能在有限的時間裡高效率交流。透過入會篩選流程，讓大家在專注事業發展的同時，也能結識正在努力前進的新朋友。申請加入，點擊這裡。",
+    "bold": false,
+    "caption": ""
+  }
+];
+
 ];
 
 const run = async () => {
