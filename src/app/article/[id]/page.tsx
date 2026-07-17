@@ -14,17 +14,17 @@ const articleData: Record<string, any> = {
     content: [
       { type: 'text', value: "Patricia Domínguez，獲得第十屆 Marta García-Fajardo 國際藝術獎，她從 Puchuncaví 出發，一片被新自由主義摧毀的土地。" },
       { type: 'text', value: "在這裡，她的創作融合了對資本主義的批判，在這次訪談中，這位智利藝術家細細剖析了她追尋靈性的歷程，並作為對生態危機的回應。" },
-      { type: 'image', value: "https://i0.wp.com/theartpressasia.com/wp-content/uploads/2025/08/Patricia-DominguezGreen-Irises-2019.jpg" },
+      { type: 'image', value: "https://i0.wp.com/tapeverythingcom.wpcomstaging.com/wp-content/uploads/2025/08/Patricia-DominguezGreen-Irises-2019.jpg" },
       { type: 'text', value: "「再教育是我尋求尊重的途徑，讓我們的土地卸下人類的欲望與規則。」她的作品融合了祖先的靈性智慧與對資本主義的批判，也回應了現代的生態危機。" },
       { type: 'text', value: "Art Press：您的創作長期聚焦於植物與土地，並使用陶土與藥草，您是如何看待這些材料在當代框架中的模樣？" },
       { type: 'text', value: "PD：在作品中的核心概念是：如何擴展我的「宇宙感知器」，如何進入與世界的靈性對話，如何解讀大地與植物的語言。這一切「有生命的事物」正因數位化與體制同質化而逐漸消逝，我覺得我有必要去回應並守護。" },
-      { type: 'image', value: "https://i0.wp.com/theartpressasia.com/wp-content/uploads/2025/08/Eyes_of_plants-Q3.jpg" },
+      { type: 'image', value: "https://i0.wp.com/tapeverythingcom.wpcomstaging.com/wp-content/uploads/2025/08/Eyes_of_plants-Q3.jpg" },
       { type: 'text', value: "Art Press：在 Yerbateras 中，像是手、腳和頭髮等身體部位以破碎或肢解的形式出現，這些不完整的形體代表了什麼？" },
       { type: 'text', value: "PD：一方面，我將它們視為一種「資本主義的黑客」，這些零散的消費物件，被重新拼合為「大地女性」形象。而在智利，醫療體系高度私有化，使得就醫成本極為高昂，因此許多人轉而求助於原住民祖傳的植物療法。" },
-      { type: 'image', value: "https://i0.wp.com/theartpressasia.com/wp-content/uploads/2025/08/Madre_drone.jpg" },
+      { type: 'image', value: "https://i0.wp.com/tapeverythingcom.wpcomstaging.com/wp-content/uploads/2025/08/Madre_drone.jpg" },
       { type: 'text', value: "Art Press：你如何看待在現代中“靈性”的力量？" },
       { type: 'text', value: "PD：我相信我們在當下擁有抵抗的力量，它是關懷、庇護、擁抱並保護生命的能量。我的作品靈感來自我的夢境與冥想。" },
-      { type: 'image', value: "https://i0.wp.com/theartpressasia.com/wp-content/uploads/2025/08/PD.png" },
+      { type: 'image', value: "https://i0.wp.com/tapeverythingcom.wpcomstaging.com/wp-content/uploads/2025/08/PD.png" },
       { type: 'text', value: "Art Press：您與CERN和天文觀測站等科學研究機構合作，這些經驗是否改變了您對感知的方式？" },
       { type: 'text', value: "PD：對我而言，世界本身就是靈性的。科學，只是我們嘗試理解這份神秘的途徑之一。前往 CERN 對我來說，是一場「靈性科幻」的旅程，研究宇宙神秘起源的所在。" }
     ]
