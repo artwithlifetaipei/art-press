@@ -1147,8 +1147,9 @@ a:hover {
 }
 
 .club-price-features li {
-  font-size: 1.25rem;
-  padding-left: 2rem;
+  font-size: 1.18rem;
+  line-height: 1.5;
+  padding-left: 1.8rem;
   position: relative;
 }
 
@@ -1156,6 +1157,169 @@ a:hover {
   content: "—";
   position: absolute;
   left: 0;
+  color: var(--accent);
+}
+
+.club-price-feature-sub {
+  display: block;
+  font-size: 0.95rem;
+  color: #666;
+  font-weight: 300;
+  line-height: 1.6;
+  margin-top: 0.35rem;
+  font-style: normal;
+}
+
+.club-price-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* UI UX PRO MAX: Detailed Privileges Section */
+.club-privileges-detail-section {
+  margin-top: 100px;
+  padding-top: 80px;
+  border-top: 1px solid var(--border);
+}
+
+.club-privileges-detail-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.club-privileges-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+}
+
+.club-privilege-detail-card {
+  background-color: #FAFAFA;
+  border: 1px solid var(--border);
+  padding: 3rem 2.6rem;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.club-privilege-detail-card:hover {
+  background-color: #FFF;
+  border-color: var(--ink);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.club-privilege-badge {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.club-privilege-heading {
+  font-size: 1.45rem;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 1.2rem;
+  color: var(--ink);
+}
+
+.club-privilege-desc {
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: #333;
+}
+
+.club-privilege-note {
+  font-size: 0.92rem;
+  color: #777;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.club-topics-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+}
+
+.club-topic-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E2E2;
+  padding: 6px 12px;
+  font-size: 0.88rem;
+  color: #222;
+  font-family: var(--font-serif);
+  line-height: 1.3;
+}
+
+.club-pill-tag {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.club-privilege-highlight-box {
+  margin-top: 1.4rem;
+  padding: 1rem 1.2rem;
+  background-color: #FFFFFF;
+  border-left: 2px solid var(--accent);
+  border-top: 1px solid #EFEFEF;
+  border-right: 1px solid #EFEFEF;
+  border-bottom: 1px solid #EFEFEF;
+}
+
+.club-quota-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+
+.club-quota-item {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E2E2;
+  padding: 1.2rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.club-quota-item-premium {
+  border-color: var(--accent);
+  background-color: rgba(255, 88, 88, 0.02);
+}
+
+.club-quota-tier {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+
+.club-quota-item-premium .club-quota-tier {
+  color: var(--accent);
+}
+
+.club-quota-hours {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--ink);
+}
+
+.club-quota-hours strong {
+  font-size: 1.35rem;
+  font-weight: 600;
   color: var(--accent);
 }
 
@@ -1302,7 +1466,25 @@ a:hover {
 @media (max-width: 1024px) {
   .club-quote-grid, .club-pricing-grid, .club-contact-grid {
     grid-template-columns: 1fr;
-    gap: 4rem;
+    gap: 3rem;
+  }
+  .club-price-card {
+    padding: 3.5rem 2.2rem;
+  }
+  .club-privileges-detail-section {
+    margin-top: 70px;
+    padding-top: 50px;
+  }
+  .club-privileges-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+  .club-privilege-detail-card {
+    padding: 2.2rem 1.8rem;
+  }
+  .club-quota-comparison {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
   }
   .club-steps-grid {
     grid-template-columns: 1fr;
