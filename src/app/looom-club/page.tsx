@@ -157,7 +157,7 @@ export default function LooomClubPage() {
             transition={{ duration: 1, ease: [0.19, 1, 0.22, 1] }}
           >
             <div>
-              <h3 className="serif club-price-title" style={{ margin: 0 }}>基礎會籍</h3>
+              <h3 className="serif club-price-title" style={{ margin: 0 }}>基礎會籍 12 個月</h3>
               <p className="club-price-desc" style={{ marginBottom: '1rem' }}>Membership for 12 Months</p>
               <p className="serif" style={{ fontSize: "1.35rem", color: "var(--ink)", fontStyle: "italic", margin: 0, fontWeight: 500, marginBottom: '2.5rem' }}>
                 NTD 18,800 <span style={{ fontSize: '0.95rem', color: 'var(--muted)', fontStyle: 'normal' }}>/ 年</span>
@@ -165,19 +165,12 @@ export default function LooomClubPage() {
 
               <ul className="club-price-features serif">
                 <li>
-                  <strong>線上不公開全封閉社群環境</strong>
-                  <span className="club-price-feature-sub">僅限正式會員，直接聯繫各品牌創辦人與決策者，跨界合作免公關引薦</span>
+                  <strong>「I. 產業戰略陪跑」包含：</strong>
+                  <span className="club-price-feature-sub">十二個月內線上諮詢總時數 1 小時</span>
                 </li>
                 <li>
-                  <strong>每季「閉門共學季會」參與權</strong>
-                  <span className="club-price-feature-sub">實體出席每季主題共學季會，聚焦強化品牌與事業技能</span>
-                </li>
-                <li>
-                  <strong>體驗「戰略陪跑時數」每年 1 小時</strong>
-                  <span className="club-price-feature-sub">專案策略諮詢與陪跑（超出配額可享會員優惠價加購）</span>
-                </li>
-                <li>
-                  <strong>會籍專屬活動、論壇與交流聚會參與資格</strong>
+                  <strong>「II. 閉門共學季會」包含：</strong>
+                  <span className="club-price-feature-sub">每季一次，全年共四次。策劃僅限會員參與、兼具深度內容的閉門聚會，構築跨越時尚、藝術與生活設計的美學社交交流。</span>
                 </li>
               </ul>
             </div>
@@ -206,7 +199,7 @@ export default function LooomClubPage() {
           >
             <div>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.5rem' }}>
-                <h3 className="serif club-price-title" style={{ margin: 0 }}>Premium 會籍</h3>
+                <h3 className="serif club-price-title" style={{ margin: 0 }}>Premium 會籍 12 個月</h3>
                 <span className="caps-label" style={{ color: 'var(--accent)', fontWeight: 700, fontSize: '10px', border: '1px solid var(--accent)', padding: '4px 10px', letterSpacing: '0.12em' }}>
                   RECOMMENDED
                 </span>
@@ -218,20 +211,16 @@ export default function LooomClubPage() {
 
               <ul className="club-price-features serif">
                 <li>
-                  <strong>線上不公開全封閉社群環境</strong>
-                  <span className="club-price-feature-sub">深度直連各品牌創辦人與核心決策層，高效促成商業合作與資源共享</span>
+                  <strong>「I. 產業戰略陪跑」包含：</strong>
+                  <span className="club-price-feature-sub">十二個月內線上諮詢總時數 6 小時</span>
                 </li>
                 <li>
-                  <strong>每季「閉門共學季會」參與權（可攜伴 1 人）</strong>
-                  <span className="club-price-feature-sub">實體閉門活動，視情況開放攜帶同行者最多 1 人出席交流</span>
+                  <strong>「II. 閉門共學季會」包含：</strong>
+                  <span className="club-price-feature-sub">每季一次，全年共四次。策劃僅限會員參與、兼具深度內容的閉門聚會，構築跨越時尚、藝術與生活設計的美學社交交流。</span>
                 </li>
                 <li>
-                  <strong>精準貴賓與跨領域決策者商務媒合導入</strong>
-                  <span className="club-price-feature-sub">依品牌定位深度媒合合適決策者與精準客戶（需先完成需求訪談）</span>
-                </li>
-                <li>
-                  <strong>產業戰略「陪跑時數」每年 6 小時</strong>
-                  <span className="club-price-feature-sub">深度戰略諮詢與資源賦能（超出配額可享會員優惠價加購）</span>
+                  <strong>「III. 精準貴賓導入」包含：</strong>
+                  <span className="club-price-feature-sub">每年一次精準貴賓導入，由 Looom Club 依會員品牌／事業需求，邀請具品味與消費潛力的合適貴賓。</span>
                 </li>
               </ul>
             </div>
@@ -258,7 +247,7 @@ export default function LooomClubPage() {
               四大會籍核心權益詳細說明
             </h3>
             <p className="serif" style={{ color: '#666', fontSize: '1.15rem', marginTop: '0.8rem', fontStyle: 'italic', maxWidth: '720px', marginLeft: 'auto', marginRight: 'auto' }}>
-              深入解析 Looom Club 專為正式會員打造之社群交流、共學季會、商務媒合與戰略陪跑體系。
+              深入解析 Looom Club 專為正式會員打造之社群交流、共學季會、精準貴賓導入與戰略陪跑體系。
             </p>
           </div>
 
@@ -318,9 +307,9 @@ export default function LooomClubPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <div className="club-privilege-badge">03 / BUSINESS MATCHMAKING</div>
+              <div className="club-privilege-badge">03 / 精準貴賓導入</div>
               <h4 className="serif club-privilege-heading">
-                3. 商務媒合：精準客戶與跨界決策者對接
+                3. 精準貴賓導入
               </h4>
               <p className="serif club-privilege-desc">
                 Looom Club 將依據會員需求與品牌定位，協助媒合合適的企業決策者、精準客戶、及跨領域人士，提升建立長期合作關係的機會。為確保貴賓導入品質，前需先完成需求訪談。
