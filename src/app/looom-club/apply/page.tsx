@@ -611,7 +611,7 @@ export default function LooomApplyPage() {
                         type="text"
                         value={brandNameZh}
                         onChange={(e) => setBrandNameZh(e.target.value)}
-                        placeholder="例：文心藝所、JT STUDIO"
+                        placeholder="例：Looom Club、JT STUDIO"
                         style={{ width: '100%', padding: '12px 14px', border: '1px solid #DDD', fontSize: '0.95rem', outline: 'none' }}
                       />
                     </div>
@@ -623,7 +623,7 @@ export default function LooomApplyPage() {
                         type="text"
                         value={brandNameEn}
                         onChange={(e) => setBrandNameEn(e.target.value)}
-                        placeholder="例：Winsing Art Place"
+                        placeholder="例：Looom Club"
                         style={{ width: '100%', padding: '12px 14px', border: '1px solid #DDD', fontSize: '0.95rem', outline: 'none' }}
                       />
                     </div>
