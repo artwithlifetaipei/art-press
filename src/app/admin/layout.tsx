@@ -1,7 +1,8 @@
 "use client";
 
 import { useEffect, useState } from 'react';
-import { LogOut } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { LogOut, Users, FileText, PlusCircle } from 'lucide-react';
 
 const safeStorage = {
   getItem: (key: string) => {
@@ -16,6 +17,7 @@ const safeStorage = {
 };
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -188,13 +190,70 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </div>
         
         <nav style={{ padding: '30px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
-          <a href="/admin" style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem', color: '#000', fontWeight: 500 }}>
-            <span style={{ display: 'inline-block', width: '6px', height: '6px', backgroundColor: '#B29B6E', borderRadius: '50%' }}></span>
-            All Articles
+          <a 
+            href="/admin" 
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '10px', 
+              fontSize: '0.9rem', 
+              color: pathname === '/admin' ? '#000' : '#777', 
+              fontWeight: pathname === '/admin' ? 600 : 400 
+            }}
+          >
+            <span style={{ 
+              display: 'inline-block', 
+              width: '6px', 
+              height: '6px', 
+              backgroundColor: pathname === '/admin' ? '#B29B6E' : 'transparent', 
+              border: pathname === '/admin' ? 'none' : '1px solid #CCC',
+              borderRadius: '50%' 
+            }}></span>
+            <FileText size={16} /> All Articles
           </a>
-          <a href="/admin/editor/new" style={{ display: 'flex', alignItems: 'center', gap: '10px', fontSize: '0.9rem', color: '#777' }}>
-            <span style={{ display: 'inline-block', width: '6px', height: '6px', backgroundColor: 'transparent', border: '1px solid #CCC', borderRadius: '50%' }}></span>
-            Draft New
+
+          <a 
+            href="/admin/members" 
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '10px', 
+              fontSize: '0.9rem', 
+              color: pathname?.startsWith('/admin/members') ? '#000' : '#777', 
+              fontWeight: pathname?.startsWith('/admin/members') ? 600 : 400 
+            }}
+          >
+            <span style={{ 
+              display: 'inline-block', 
+              width: '6px', 
+              height: '6px', 
+              backgroundColor: pathname?.startsWith('/admin/members') ? '#B29B6E' : 'transparent', 
+              border: pathname?.startsWith('/admin/members') ? 'none' : '1px solid #CCC',
+              borderRadius: '50%' 
+            }}></span>
+            <Users size={16} /> Club Members
+          </a>
+
+          <a 
+            href="/admin/editor/new" 
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '10px', 
+              fontSize: '0.9rem', 
+              color: pathname === '/admin/editor/new' ? '#000' : '#777', 
+              fontWeight: pathname === '/admin/editor/new' ? 600 : 400 
+            }}
+          >
+            <span style={{ 
+              display: 'inline-block', 
+              width: '6px', 
+              height: '6px', 
+              backgroundColor: pathname === '/admin/editor/new' ? '#B29B6E' : 'transparent', 
+              border: pathname === '/admin/editor/new' ? 'none' : '1px solid #CCC',
+              borderRadius: '50%' 
+            }}></span>
+            <PlusCircle size={16} /> Draft New
           </a>
         </nav>
 

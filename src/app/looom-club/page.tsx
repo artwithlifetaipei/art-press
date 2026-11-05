@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function LooomClubPage() {
@@ -76,14 +77,12 @@ export default function LooomClubPage() {
             </span>
           </p>
           <div className="club-cta-group">
-            <a 
-              href="https://docs.google.com/forms/d/e/1FAIpQLSfxZhoWLWTW7wFBShy1VxbuuDUJNzkZup3df-BI4tSJ5UBFfg/viewform" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <Link 
+              href="/looom-club/apply" 
               className="club-btn"
             >
               Apply Membership 申請會籍
-            </a>
+            </Link>
             <a href="#membership" className="club-btn-outline">
               Learn More 暸解更多
             </a>
@@ -176,15 +175,13 @@ export default function LooomClubPage() {
             </div>
 
             <div style={{ marginTop: '3.5rem' }}>
-              <a 
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfxZhoWLWTW7wFBShy1VxbuuDUJNzkZup3df-BI4tSJ5UBFfg/viewform" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <Link 
+                href="/looom-club/apply" 
                 className="club-btn"
                 style={{ width: '100%', textAlign: 'center' }}
               >
                 申請基礎會籍 Apply
-              </a>
+              </Link>
             </div>
           </motion.div>
 
@@ -226,15 +223,13 @@ export default function LooomClubPage() {
             </div>
 
             <div style={{ marginTop: '3.5rem' }}>
-              <a 
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfxZhoWLWTW7wFBShy1VxbuuDUJNzkZup3df-BI4tSJ5UBFfg/viewform" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <Link 
+                href="/looom-club/apply" 
                 className="club-btn"
                 style={{ width: '100%', textAlign: 'center', backgroundColor: 'var(--ink)' }}
               >
                 申請 Premium 會籍 Apply
-              </a>
+              </Link>
             </div>
           </motion.div>
         </div>
@@ -381,14 +376,12 @@ export default function LooomClubPage() {
         </div>
 
         <div style={{ marginTop: '80px', textAlign: 'center' }}>
-          <a 
-            href="https://docs.google.com/forms/d/e/1FAIpQLSfxZhoWLWTW7wFBShy1VxbuuDUJNzkZup3df-BI4tSJ5UBFfg/viewform" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <Link 
+            href="/looom-club/apply" 
             className="club-btn"
           >
             Apply Membership 立即申請會籍
-          </a>
+          </Link>
         </div>
       </section>
 

@@ -20,11 +20,13 @@ export default function AdminDashboard() {
   const fetchCounts = async () => {
     const { count: total } = await supabase
       .from('articles')
-      .select('*', { count: 'exact', head: true });
+      .select('*', { count: 'exact', head: true })
+      .neq('category', 'looom_application');
 
     const { count: drafts } = await supabase
       .from('articles')
       .select('*', { count: 'exact', head: true })
+      .neq('category', 'looom_application')
       .eq('status', 'draft');
 
     setTotalCount(total ?? 0);
@@ -36,6 +38,7 @@ export default function AdminDashboard() {
       const { data, error } = await supabase
         .from('articles')
         .select('*')
+        .neq('category', 'looom_application')
         .order('created_at', { ascending: false });
 
       if (error) throw error;
