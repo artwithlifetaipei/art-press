@@ -29,7 +29,9 @@ import {
   Building2, 
   FileText,
   CreditCard,
-  Maximize2
+  Maximize2,
+  Mail,
+  Send
 } from 'lucide-react';
 
 export default function AdminMembersPage() {
@@ -48,6 +50,53 @@ export default function AdminMembersPage() {
 
   // Lightbox for previewing images
   const [lightboxUrl, setLightboxUrl] = useState<string | null>(null);
+
+  // Bank Info for Notification Email
+  const [bankInfo, setBankInfo] = useState({
+    bankName: '玉山銀行 (808)',
+    accountNumber: '待填入銀行帳號',
+    accountName: '樂盟生活事業股份有限公司'
+  });
+  const [emailCopied, setEmailCopied] = useState(false);
+
+  const generateApprovalEmail = (app: ClubApplication) => {
+    const tier = MEMBERSHIP_TIER_CONFIG[app.membershipTier] || MEMBERSHIP_TIER_CONFIG.basic;
+    const recipient = app.ownerName || app.contactName || '貴賓';
+    const brand = app.brandNameZh || app.brandNameEn || '貴品牌';
+
+    return {
+      subject: `【Looom Club】恭喜入選官方會籍審核通知及繳費指引 - ${brand}`,
+      body: `親愛的 ${recipient} 您好，
+
+感謝您申請加入 Looom Club。
+
+我們非常榮幸地通知您，經 Looom Club 審核委員會評估，您的品牌理念與我們所追求的美學商業實務價值高度契合，已正式通過會籍審核！
+
+【入選會籍資訊】
+• 申請品牌：${brand}
+• 會籍方案：${tier.nameZh}
+• 方案金額：${tier.priceLabel}
+• 會籍權益：
+  - 產業戰略陪跑線上諮詢時數
+  - 閉門共學季會（每季一次，全年共四次）
+  - 封閉會員制創辦人跨界交流網絡
+${app.membershipTier === 'premium' ? '  - 每年一次精準貴賓導入\n' : ''}
+【會費轉帳資訊】
+• 銀行名稱：${bankInfo.bankName}
+• 銀行帳號：${bankInfo.accountNumber}
+• 帳戶戶名：${bankInfo.accountName}
+• 應繳金額：${tier.priceLabel}
+• 繳費期限：收到本信起 5 個工作天內
+
+完成匯款後，請直接回覆本信並告知您的「匯款帳號後五碼」及「統一編號抬頭（若需開立三聯式發票）」，我們將於確認款項後寄發正式收據及會員迎新啟動指南。
+
+再次歡迎您加入 Looom Club！
+
+Looom Club 執委會 敬上
+官方信箱：looom@theartpressasia.com
+會員服務：looom.member@gmail.com`
+    };
+  };
 
   useEffect(() => {
     loadApplications();
@@ -606,6 +655,99 @@ export default function AdminMembersPage() {
                   </button>
                 </div>
               </div>
+
+              {/* Approval Email Dispatch Box */}
+              {(editingStatus === 'approved' || selectedApp.status === 'approved') && (
+                <div style={{ backgroundColor: '#F0FDF4', border: '1px solid #BBF7D0', padding: '24px' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '14px', flexWrap: 'wrap', gap: '12px' }}>
+                    <div>
+                      <span className="caps-label" style={{ color: '#166534', fontSize: '0.7rem', fontWeight: 600 }}>
+                        OFFICIAL ACCEPTANCE DISPATCH
+                      </span>
+                      <h4 style={{ margin: '2px 0 0', fontSize: '1.05rem', fontWeight: 600, color: '#14532D' }}>
+                        寄送官方入選專函與匯款指引信
+                      </h4>
+                      <p style={{ margin: '4px 0 0', fontSize: '0.8rem', color: '#15803D' }}>
+                        此會員已核准入選！請寄發專函通知其應繳金額及官方銀行匯款帳號。
+                      </p>
+                    </div>
+
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const mail = generateApprovalEmail(selectedApp);
+                          navigator.clipboard.writeText(`主旨：${mail.subject}\n\n${mail.body}`);
+                          setEmailCopied(true);
+                          setTimeout(() => setEmailCopied(false), 2000);
+                        }}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          padding: '8px 14px',
+                          fontSize: '0.75rem',
+                          backgroundColor: '#FFF',
+                          border: '1px solid #86EFAC',
+                          color: '#15803D',
+                          cursor: 'pointer',
+                          fontWeight: 500
+                        }}
+                      >
+                        {emailCopied ? <Check size={13} /> : <Copy size={13} />}
+                        {emailCopied ? '已複製信件全文' : '複製通知信草稿'}
+                      </button>
+
+                      <a
+                        href={`mailto:${selectedApp.ownerEmail || selectedApp.email}?subject=${encodeURIComponent(generateApprovalEmail(selectedApp).subject)}&body=${encodeURIComponent(generateApprovalEmail(selectedApp).body)}`}
+                        style={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '6px',
+                          padding: '8px 16px',
+                          fontSize: '0.75rem',
+                          backgroundColor: '#166534',
+                          color: '#FFF',
+                          textDecoration: 'none',
+                          fontWeight: 600
+                        }}
+                      >
+                        <Send size={13} /> 開啟郵件寄發
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Bank info configuration */}
+                  <div style={{ borderTop: '1px dashed #86EFAC', paddingTop: '14px', marginTop: '12px' }}>
+                    <span style={{ fontSize: '0.75rem', fontWeight: 600, color: '#166534', display: 'block', marginBottom: '8px' }}>
+                      ⚙️ 匯款帳號設定（會自動帶入上方信件範本中）：
+                    </span>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px' }}>
+                      <input
+                        type="text"
+                        value={bankInfo.bankName}
+                        onChange={(e) => setBankInfo(prev => ({ ...prev, bankName: e.target.value }))}
+                        placeholder="銀行名稱與代碼"
+                        style={{ padding: '6px 10px', fontSize: '0.8rem', border: '1px solid #86EFAC', backgroundColor: '#FFF' }}
+                      />
+                      <input
+                        type="text"
+                        value={bankInfo.accountNumber}
+                        onChange={(e) => setBankInfo(prev => ({ ...prev, accountNumber: e.target.value }))}
+                        placeholder="官方銀行帳號"
+                        style={{ padding: '6px 10px', fontSize: '0.8rem', border: '1px solid #86EFAC', backgroundColor: '#FFF' }}
+                      />
+                      <input
+                        type="text"
+                        value={bankInfo.accountName}
+                        onChange={(e) => setBankInfo(prev => ({ ...prev, accountName: e.target.value }))}
+                        placeholder="公司戶名"
+                        style={{ padding: '6px 10px', fontSize: '0.8rem', border: '1px solid #86EFAC', backgroundColor: '#FFF' }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {/* Remittance Screenshot Lightbox Trigger */}
               {selectedApp.remittanceImageUrl && (

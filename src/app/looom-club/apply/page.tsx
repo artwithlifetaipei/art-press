@@ -275,8 +275,10 @@ export default function LooomApplyPage() {
               審核時程與官方聯繫
             </h4>
             <ul style={{ margin: 0, paddingLeft: '18px', color: '#555', fontSize: '0.85rem', lineHeight: 1.8 }}>
+              <li><strong>初審免繳費</strong>：遞交申請階段無需預先付款，專注於品牌資料評估。</li>
               <li><strong>5 個工作天審核期</strong>：官方審核結果將透過電子郵件專函通知。</li>
-              <li><strong>匯款確認</strong>：確認收到入會款項後，我們將寄發正式收據與會員社群啟動指南。</li>
+              <li><strong>入選繳費指引</strong>：經委員會審核通過後，將以專函電郵提供收款帳號、匯款金額與迎新須知。</li>
+              <li><strong>款項收訖確認</strong>：確認收到入會款項後，我們將寄發正式收據與會員社群啟動指南。</li>
               <li>若於遞交後 3 個工作天內未收到確認回覆，或有任何資料補充，歡迎聯繫：</li>
               <li style={{ listStyle: 'none', marginTop: '6px' }}>
                 <span style={{ color: '#111', fontWeight: 500 }}>官方信箱：</span> looom@theartpressasia.com<br/>
@@ -560,20 +562,23 @@ export default function LooomApplyPage() {
                 {/* Review Process Timeline Card */}
                 <div style={{ backgroundColor: '#FBFBFB', border: '1px solid #EBEBEB', padding: '22px 24px', marginBottom: '20px' }}>
                   <h5 style={{ margin: '0 0 14px', fontSize: '0.8rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: '#444' }}>
-                    申請暨官方審核程序
+                    申請暨官方審核程序（初審免預先繳費）
                   </h5>
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '14px', fontSize: '0.85rem' }}>
                     <div style={{ borderLeft: '2px solid #000', paddingLeft: '12px' }}>
                       <span style={{ color: '#888', fontSize: '0.75rem' }}>A 階段</span>
-                      <p style={{ margin: '2px 0 0', fontWeight: 600 }}>遞交申請，填寫表單</p>
+                      <p style={{ margin: '2px 0 0', fontWeight: 600 }}>線上遞交申請</p>
+                      <span style={{ color: '#777', fontSize: '0.75rem' }}>填寫品牌與負責人資料，免預繳會費</span>
                     </div>
                     <div style={{ borderLeft: '2px solid #000', paddingLeft: '12px' }}>
                       <span style={{ color: '#888', fontSize: '0.75rem' }}>B 階段</span>
                       <p style={{ margin: '2px 0 0', fontWeight: 600 }}>5 個工作天官方審核期</p>
+                      <span style={{ color: '#777', fontSize: '0.75rem' }}>審核委員會評估品牌調性與契合度</span>
                     </div>
                     <div style={{ borderLeft: '2px solid #000', paddingLeft: '12px' }}>
                       <span style={{ color: '#888', fontSize: '0.75rem' }}>C 階段</span>
-                      <p style={{ margin: '2px 0 0', fontWeight: 600 }}>入選與否，專函電郵通知</p>
+                      <p style={{ margin: '2px 0 0', fontWeight: 600 }}>入選通知與匯款繳費</p>
+                      <span style={{ color: '#777', fontSize: '0.75rem' }}>審核通過後，專函電郵通知轉帳帳號</span>
                     </div>
                   </div>
                 </div>
@@ -938,72 +943,35 @@ export default function LooomApplyPage() {
                     />
                   </div>
 
-                  {/* Remittance Screenshot Upload */}
-                  <div style={{ border: '1px solid #EBEBEB', padding: '22px', backgroundColor: '#FAFAFA' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '12px' }}>
-                      <div>
-                        <h5 style={{ margin: 0, fontSize: '0.85rem', letterSpacing: '0.1em', textTransform: 'uppercase', fontWeight: 600, color: '#111' }}>
-                          申請入會會籍款項之匯款單據截圖 / 圖檔
-                        </h5>
-                        <p style={{ margin: '4px 0 0', fontSize: '0.75rem', color: '#777' }}>
-                          {membershipTier === 'basic' ? '基礎會籍款項 NTD 18,800' : 'Premium 會籍款項 NTD 28,800'} 轉帳憑證或網銀交易明細
-                        </p>
-                      </div>
-                    </div>
-
-                    {remittanceImage ? (
-                      <div style={{ position: 'relative', display: 'inline-block', border: '1px solid #DDD', padding: '6px', backgroundColor: '#FFF' }}>
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={remittanceImage} alt="匯款單據" style={{ maxHeight: '180px', width: 'auto', display: 'block' }} />
-                        <button
-                          type="button"
-                          onClick={() => setRemittanceImage('')}
-                          style={{
-                            position: 'absolute',
-                            top: '-8px',
-                            right: '-8px',
-                            backgroundColor: '#000',
-                            color: '#FFF',
-                            borderRadius: '50%',
-                            width: '24px',
-                            height: '24px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
-                            border: 'none',
-                            cursor: 'pointer'
-                          }}
-                        >
-                          <X size={14} />
-                        </button>
-                      </div>
-                    ) : (
-                      <label style={{
+                  {/* Payment & Review Policy Notice */}
+                  <div style={{ border: '1px solid #EBEBEB', padding: '22px 24px', backgroundColor: '#FAFAFA' }}>
+                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
+                      <div style={{
+                        width: '36px',
+                        height: '36px',
+                        borderRadius: '50%',
+                        backgroundColor: '#000',
+                        color: '#FFF',
                         display: 'flex',
-                        flexDirection: 'column',
                         alignItems: 'center',
                         justifyContent: 'center',
-                        padding: '30px 20px',
-                        border: '1px dashed #CCC',
-                        backgroundColor: '#FFF',
-                        cursor: 'pointer',
-                        transition: 'border-color 0.2s'
+                        flexShrink: 0,
+                        marginTop: '2px'
                       }}>
-                        <Upload size={24} style={{ color: '#888', marginBottom: '8px' }} />
-                        <span style={{ fontSize: '0.85rem', fontWeight: 500, color: '#111' }}>點擊或拖曳上傳匯款單據截圖 (JPEG / PNG)</span>
-                        <span style={{ fontSize: '0.75rem', color: '#888', marginTop: '4px' }}>若尚未匯款亦可先於下方填寫雲端連結後補</span>
-                        <input
-                          type="file"
-                          accept="image/*"
-                          style={{ display: 'none' }}
-                          onChange={(e) => {
-                            if (e.target.files && e.target.files[0]) {
-                              handleImageUpload(e.target.files[0], true);
-                            }
-                          }}
-                        />
-                      </label>
-                    )}
+                        <CreditCard size={18} />
+                      </div>
+                      <div>
+                        <h5 style={{ margin: 0, fontSize: '0.9rem', letterSpacing: '0.08em', textTransform: 'uppercase', fontWeight: 600, color: '#111' }}>
+                          會費繳納說明：初審階段無需預先付款
+                        </h5>
+                        <p style={{ margin: '6px 0 0', fontSize: '0.85rem', color: '#666', lineHeight: 1.7 }}>
+                          Looom Club 為封閉審核制會員社群。為確保雙方理念與資源契合，<strong>遞交申請階段無需進行轉帳或匯款</strong>。您的申請將於 5 個工作天內由審核委員會評估，經<strong>審核通過（Approved）</strong>後，官方將以專函電郵寄發正式入選通知、專屬匯款帳戶資訊與會籍啟動迎新指南。
+                        </p>
+                        <div style={{ marginTop: '10px', fontSize: '0.8rem', color: '#B29B6E', fontWeight: 600 }}>
+                          預計繳納會費：{MEMBERSHIP_TIER_CONFIG[membershipTier].nameZh} {MEMBERSHIP_TIER_CONFIG[membershipTier].priceLabel}（待審核通過後繳納）
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
                   {/* Brand Images (3-5 Photos) */}
@@ -1158,8 +1126,8 @@ export default function LooomApplyPage() {
                       <span>{email}</span>
                     </div>
                     <div>
-                      <span style={{ color: '#888', display: 'block', fontSize: '0.75rem' }}>匯款憑證狀態 Remittance</span>
-                      <span>{remittanceImage ? '已附加截圖憑證' : (cloudDriveUrl ? '已附雲端資料夾' : '未附截圖')}</span>
+                      <span style={{ color: '#888', display: 'block', fontSize: '0.75rem' }}>會費繳納狀態 Fee Status</span>
+                      <strong style={{ color: '#B29B6E' }}>初審免預繳，審核通過後電郵通知</strong>
                     </div>
                   </div>
                 </div>
@@ -1187,7 +1155,7 @@ export default function LooomApplyPage() {
                       style={{ marginTop: '4px', width: '18px', height: '18px', accentColor: '#000', cursor: 'pointer' }}
                     />
                     <span>
-                      我知悉遞交申請後享有 5 個工作天之官方審核期，審核結果與款項收訖確認將以電郵專函通知。若因審核未通過，所繳費用將依本會規章全額退還。
+                      我知悉遞交申請後享有 5 個工作天之官方審核期。審核通過與否將由官方透過電子郵件專函通知；若經審核通過，我將依專函所附之匯款帳戶資訊於期限內完成會費繳納，以正式啟動會員權益。
                     </span>
                   </label>
                 </div>
