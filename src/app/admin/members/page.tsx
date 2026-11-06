@@ -353,7 +353,7 @@ Looom Club 執委會 敬上
                 <th style={{ padding: '16px 20px', fontWeight: 600, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>品牌名稱 / 會籍方案</th>
                 <th style={{ padding: '16px 20px', fontWeight: 600, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>品牌負責人</th>
                 <th style={{ padding: '16px 20px', fontWeight: 600, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>聯絡方式</th>
-                <th style={{ padding: '16px 20px', fontWeight: 600, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>匯款與附件</th>
+                <th style={{ padding: '16px 20px', fontWeight: 600, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>品牌素材與附件</th>
                 <th style={{ padding: '16px 20px', fontWeight: 600, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>遞交日期</th>
                 <th style={{ padding: '16px 20px', fontWeight: 600, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase' }}>審核狀態</th>
                 <th style={{ padding: '16px 20px', fontWeight: 600, fontSize: '0.75rem', letterSpacing: '0.1em', textTransform: 'uppercase', textAlign: 'right' }}>操作</th>
@@ -407,13 +407,13 @@ Looom Club 執委會 敬上
                       <div style={{ fontSize: '0.8rem', color: '#666' }}>{app.ownerEmail || app.email}</div>
                     </td>
 
-                    {/* Remittance & Attachments */}
+                    {/* Brand Media & Attachments */}
                     <td style={{ padding: '18px 20px' }}>
-                      <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-                        {app.remittanceImageUrl ? (
+                      <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>
+                        {app.brandImages && app.brandImages.length > 0 ? (
                           <button
                             type="button"
-                            onClick={() => setLightboxUrl(app.remittanceImageUrl!)}
+                            onClick={() => setLightboxUrl(app.brandImages![0])}
                             style={{ 
                               display: 'inline-flex', 
                               alignItems: 'center', 
@@ -426,10 +426,10 @@ Looom Club 執委會 敬上
                               color: '#111'
                             }}
                           >
-                            <CreditCard size={12} /> 匯款截圖
+                            <Maximize2 size={11} /> 照片 ({app.brandImages.length})
                           </button>
                         ) : (
-                          <span style={{ fontSize: '0.75rem', color: '#AAA' }}>未附截圖</span>
+                          !app.cloudDriveUrl && <span style={{ fontSize: '0.75rem', color: '#AAA' }}>無照片附件</span>
                         )}
 
                         {app.cloudDriveUrl && (
@@ -443,10 +443,11 @@ Looom Club 執委會 敬上
                               gap: '3px', 
                               fontSize: '0.75rem', 
                               color: '#B29B6E', 
-                              textDecoration: 'none' 
+                              textDecoration: 'none',
+                              fontWeight: 500
                             }}
                           >
-                            雲端 <ExternalLink size={10} />
+                            雲端資料夾 <ExternalLink size={10} />
                           </a>
                         )}
                       </div>
