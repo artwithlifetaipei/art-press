@@ -39,11 +39,15 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     setLoading(true);
     setError('');
 
-    // Admin Credentials
-    const ADMIN_EMAIL = 'looom@theartpressasia.com';
+    // Admin Credentials (supports both official domains)
+    const VALID_ADMIN_EMAILS = [
+      'looom@theartpressasia.com',
+      'looom@looom-artpress.com',
+      'news@theartpressasia.com'
+    ];
     const ADMIN_PASSWORD = 'LIUKUO05100413';
 
-    if (email.trim().toLowerCase() === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+    if (VALID_ADMIN_EMAILS.includes(email.trim().toLowerCase()) && password === ADMIN_PASSWORD) {
       safeStorage.setItem('looom_admin_session', 'true');
       setIsAuthenticated(true);
     } else {
@@ -114,7 +118,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="news@theartpressasia.com"
+                placeholder="looom@theartpressasia.com"
                 style={{ 
                   padding: '12px 16px', 
                   border: '1px solid #DDD', 

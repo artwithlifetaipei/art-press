@@ -90,12 +90,23 @@ export const STATUS_CONFIG: Record<ApplicationStatus, { label: string; color: st
   }
 };
 
+function generateUUID(): string {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    return crypto.randomUUID();
+  }
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+    const r = (Math.random() * 16) | 0;
+    const v = c === 'x' ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
+
 /**
  * Submit a new application into Supabase
  */
 export async function submitClubApplication(appData: Omit<ClubApplication, 'id' | 'submittedAt' | 'status'>): Promise<{ success: boolean; id?: string; error?: string }> {
   try {
-    const id = typeof crypto !== 'undefined' && crypto.randomUUID ? crypto.randomUUID() : `app-${Date.now()}`;
+    const id = generateUUID();
     const submittedAt = new Date().toISOString();
     const status: ApplicationStatus = 'pending';
 
