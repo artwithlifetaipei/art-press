@@ -173,23 +173,57 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   }
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#FAFAFA' }}>
+    <div className="looom-admin-shell" style={{ display: 'flex', minHeight: '100vh', backgroundColor: '#FAFAFA' }}>
+      <style>{`
+        @media (max-width: 900px) {
+          .looom-admin-shell {
+            flex-direction: column !important;
+          }
+          .looom-admin-sidebar {
+            width: 100% !important;
+            border-right: none !important;
+            border-bottom: 1px solid #E8E8E8 !important;
+          }
+          .looom-admin-brand {
+            padding: 20px !important;
+          }
+          .looom-admin-brand h1 {
+            font-size: 1.4rem !important;
+          }
+          .looom-admin-brand h1 br {
+            display: none;
+          }
+          .looom-admin-nav {
+            padding: 14px 20px !important;
+            flex-direction: row !important;
+            flex-wrap: wrap !important;
+            gap: 16px !important;
+          }
+          .looom-admin-footer {
+            padding: 14px 20px !important;
+            flex-direction: row !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+          }
+        }
+      `}</style>
       
       {/* Sidebar - Art Authority V4 Style */}
-      <aside style={{ 
+      <aside className="looom-admin-sidebar" style={{ 
         width: '260px', 
         backgroundColor: '#FFF', 
         borderRight: '1px solid #E8E8E8',
         display: 'flex',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        flexShrink: 0
       }}>
-        <div style={{ padding: '40px 30px', borderBottom: '1px solid #E8E8E8' }}>
+        <div className="looom-admin-brand" style={{ padding: '40px 30px', borderBottom: '1px solid #E8E8E8' }}>
           <h1 className="serif" style={{ fontSize: '1.8rem', fontWeight: 500, letterSpacing: '0.05em' }}>
             Looom <br /> Admin
           </h1>
         </div>
         
-        <nav style={{ padding: '30px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
+        <nav className="looom-admin-nav" style={{ padding: '30px', display: 'flex', flexDirection: 'column', gap: '15px' }}>
           <a 
             href="/admin" 
             style={{ 
@@ -231,7 +265,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               border: pathname?.startsWith('/admin/members') ? 'none' : '1px solid #CCC',
               borderRadius: '50%' 
             }}></span>
-            <Users size={16} /> Club Members
+            <Users size={16} /> Club Members (入會審核)
           </a>
 
           <a 
@@ -257,7 +291,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </a>
         </nav>
 
-        <div style={{ marginTop: 'auto', padding: '30px', borderTop: '1px solid #E8E8E8', display: 'flex', flexDirection: 'column', gap: '15px' }}>
+        <div className="looom-admin-footer" style={{ marginTop: 'auto', padding: '30px', borderTop: '1px solid #E8E8E8', display: 'flex', flexDirection: 'column', gap: '15px' }}>
           <button 
             onClick={handleSignOut}
             style={{ 
@@ -283,7 +317,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       </aside>
 
       {/* Main Content Area */}
-      <main style={{ flex: 1, overflowY: 'auto' }}>
+      <main style={{ flex: 1, minWidth: 0, overflowY: 'auto' }}>
         {children}
       </main>
 
